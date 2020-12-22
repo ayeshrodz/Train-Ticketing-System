@@ -1,7 +1,7 @@
 import { ArrowForward } from '@material-ui/icons';
 import React from 'react'
 import "../css/App.css";
-import Logo from "./Images/logo.jpg"
+import Logo from "../Images/logo.jpg"
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import {Link} from 'react-router-dom'
 

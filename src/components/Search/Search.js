@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from "./Images/logo.jpg"
+import Logo from "../Images/logo.jpg"
 import SearchIcon from "@material-ui/icons/Search"
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import "../css/App.css";

@@ -1,8 +1,9 @@
 import React from "react"
 import {BrowserRouter, Switch, Route} from "react-router-dom"
-import Landing from './Landing';
-import Search from './Search';
-import "../css/App.css";
+import Landing from './Landing/Landing';
+import Search from './Search/Search';
+import Signup from './auth/Signup'
+import "./css/App.css"
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Switch>
           <Route exact path = "/" component = {Landing}/>
           <Route exact path = "/search" component ={Search}/>
+          <Route exact path = "/sign-up" component = {Signup}/>
         </Switch>
       </BrowserRouter>
     </div>
