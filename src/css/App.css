@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body, html {
+    background-color: #ffffff;  
+    height: auto;
+    overflow: hidden;
+  }
+.container, .container-fluid, .row{
+    clear: both;
+    width: 100%;
+}
+
+/* Landing-Page */
+.bgcr {
+    height: 100vh;
+}
+.landing {
+    margin-top: 20vh;
+}
+.heading {
+    margin-top: 0px;
+    position: relative;
+    animation-name: chin;
+    animation-duration: 1.5s;
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+}
+@keyframes chin {
+    from {
+        margin-top: -950px;
+    }
+    to {
+        margin-top: 0px;
+    }
+}
+.logo {
+    height: auto;
+    width: 20vh;
+    animation-name: logo;
+    animation-duration: 1.5s;
+}
+@keyframes logo {
+    from {
+        margin-top: 90vw;
+    }
+    to {
+        margin-top: 0vw;
+    }
+}
+.arrow {
+    text-align: center;
+    clear: both;
+    width: 100%;
+}
+.next-btn {
+    width: 67px;
+    height: 67px;
+    display: inline-block;
+    background: #000000;
+    border-radius: 32px;
+    font-size: 32px;
+    line-height: 63px;
+    color: #ffffff;
+}
+.MuiSvgIcon-root {
+    margin: 0 0 7px;
+    color: #ffffff;
+}
+
+/* Search-Page */
+.Search-logo {
+    object-fit: contain;
+    height: 20vh;
+    margin-left: 15px;
+}
+.search-body {
+    flex: 1;
+    display: flex;
+    margin-top: 40px;
+    flex-direction: column;
+}
+.search-heading {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 60px;
+}
+
+/* Search-Page-Search-Bar */
+.search_input {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border: 1px solid lightgray;
+    border-radius: 999px;
+    width: 75vw;
+    padding: 10px 20px;
+    margin: 0 auto;
+    margin-top: 40px;
+    max-width: 560px;
+    float: left;
+}
+.search_input > input {
+    flex: 1;
+    padding: 0 20px;
+    border: none !important;
+    background: transparent;
+    font-size: 15px;
+}
+.search_input > input:focus {
+    outline-width: 0;
+}
+.search_inputIcon {
+    color: #000000;
+    margin-top: 10px;
+  }
+  

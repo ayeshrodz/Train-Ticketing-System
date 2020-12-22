@@ -1,19 +1,19 @@
 import React from "react"
-import Signup from "./auth/Signup"
-import { Container } from "react-bootstrap"
-import { AuthProvider } from "../contexts/AuthContext"
+import {BrowserRouter, Switch, Route} from "react-router-dom"
+import Landing from './Landing';
+import Search from './Search';
+import "../css/App.css";
 
 function App() {
   return (
-    <AuthProvider>
-      <Container 
-        className="d-flex align-items-center justify-content-center" 
-        style={{ minHeight: "100vh" }}>
-          <div className="w-100" style= {{ maxWidth: "400px"}}>
-            <Signup/>
-          </div>
-      </Container>
-    </AuthProvider>
+    <div className = "App container-fluid">
+      <BrowserRouter>
+        <Switch>
+          <Route exact path = "/" component = {Landing}/>
+          <Route exact path = "/search" component ={Search}/>
+        </Switch>
+      </BrowserRouter>
+    </div>
     
   )
 }
