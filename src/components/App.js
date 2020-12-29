@@ -1,7 +1,7 @@
 import React from "react"
 import {BrowserRouter, Switch, Route} from "react-router-dom"
-import Landing from './Landing/Landing';
-import Search from './Search/Search';
+import Landing from './Landing';
+import Search from './Search';
 import Signup from './auth/Signup'
 import "./css/App.css"
 
