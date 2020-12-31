@@ -3,12 +3,6 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import "./Header.css";
 
 function Header() {
-  const renderTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-      Simple tooltip
-    </Tooltip>
-  );
-
   return (
     <div className="header">
       <Navbar
@@ -30,11 +24,13 @@ function Header() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link href="search">Search</Nav.Link>
-            <Nav.Link href="about">About</Nav.Link>
-            <Nav.Link href="login">Login</Nav.Link>
-            {/*<NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+            <Nav.Link href="/review">Review</Nav.Link>
+            <Nav.Link href="/profile">Profile</Nav.Link>
+
+            <NavDropdown title="Admin" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="/admin/schedules">
+                Schedules
+              </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
               </NavDropdown.Item>
@@ -43,7 +39,9 @@ function Header() {
               <NavDropdown.Item href="#action/3.4">
                 Separated link
               </NavDropdown.Item>
-  </NavDropdown>*/}
+            </NavDropdown>
+            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -2,9 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./header/Header";
 import Home from "./home/Home";
-import Search from "./search/Search";
+import Profile from "./profile/Profile";
 import About from "./about/About";
 import AuthMain from "./auth/AuthMain";
+import Review from "./review/Review";
+import NotFound from "./NotFound";
 
 function App() {
   return (
@@ -14,19 +16,12 @@ function App() {
         <Header />
         <div className="app_body">
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-
-            <Route path="/search">
-              <Search />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/login">
-              <AuthMain />
-            </Route>
+            <Route exact path="/" component={Home} />
+            <Route path="/review" component={Review} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/about" component={About} />
+            <Route path="/login" component={AuthMain} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </Router>
