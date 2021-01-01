@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 /* Landing Page */
 .landing {
     color: #ffffff;
-    padding-top: 30vh;
+    padding-top: 20vh;
 }
 .bgcr {
     height: 100vh;
@@ -11,6 +12,8 @@
     width: 30vh;
     animation-name: logo;
     animation-duration: 1.5s;
+    margin-left: 0.5rem;
+    
   }
   @keyframes logo {
     from {
@@ -23,15 +26,35 @@
 
     
   .slogan {
+    
+    position: relative;
+    animation-name:slogan;
+    animation-duration: 1.5s;
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 60px;
+    text-align: center;
+   
+  }
+  @keyframes slogan {
+    from {
+      margin-top: -950px;
+    }
+    to {
+      margin-top: 0px;
+    }
+  }
+
+  .slogan-2 {
     margin-top: 50px;
     position: relative;
     animation-name:slogan;
     animation-duration: 1.5s;
     color: #000000;
     font-family: 'Roboto', sans-serif;
-    font-size: 80px;
+    font-size: 30px;
     margin-top: 0%;
-    
+   
   }
   @keyframes slogan {
     from {
@@ -69,3 +92,23 @@
     color: #ffffff;
     margin-bottom: 10%;
 }
+
+ /* Mobile Responsive */
+ @media screen and (max-width:960px)
+ {
+   .landing {
+     margin-top: 20vh;
+   }
+   .logo {
+    margin-top: -34%;
+   }
+   
+   .slogan-2 {
+    font-size: 4vh;
+
+   }
+   .arrow {
+
+   }
+
+ }

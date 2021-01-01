@@ -1,0 +1,7 @@
+.container, .container-fluid, .row{
+    clear: both;
+    /* float: left; */
+    width: 100%;
+    
+  }
+

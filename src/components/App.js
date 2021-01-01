@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./header/Header";
+import './App.css';
 import Home from "./home/Home";
 import Profile from "./profile/Profile";
 import About from "./about/About";
@@ -15,7 +15,7 @@ function App() {
       {/* Header */}
       <Router>
        
-        <div className="app_body">
+        <div className="App container-fluid">
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/home" component={Home} />

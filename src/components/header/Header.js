@@ -1,6 +1,8 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import "./Header.css";
+import Logo from "../Images/logo.png"
+
 
 function Header() {
   return (
@@ -12,14 +14,8 @@ function Header() {
         className="color-nav"
       >
         <Navbar.Brand href="/">
-          <img
-            alt=""
-            src="/img/icon.png"
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
-          />{" "}
-          Chin-Chin
+        <img src = {Logo} className = "header-logo" width="50"
+            height="50" alt = "logo"/> Chin-Chin
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

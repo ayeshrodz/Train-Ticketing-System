@@ -11,6 +11,7 @@ function Landing() {
                     <div  align = "center" className = "heading">
                         <img src = {Logo} className = "logo" alt = "logo"/>
                         <h1 className = "slogan">Chin-Chin</h1>
+                        <h3 className = "slogan-2">Online Train Ticket Booking Platform</h3>
                     </div>
                     <div className = "arrow" width = "100%">
                         <div className = "next-btn">

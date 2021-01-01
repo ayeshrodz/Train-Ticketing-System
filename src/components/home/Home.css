@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/* Search Input Bar */
+.home {
+    padding-top: 30vh;
+}
+.input-search {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    border: 1px solid lightgray;
+    width: 75vw;
+    padding: 10px 0px;
+    margin: 0 auto;
+    margin-top: 3%;
+    max-width: 560px;
+    float: left;
+    border: none;
+    border-bottom: 1px solid #000000;
+    margin-left: 30px;
+}
+.input-search > input {
+  flex: 1;
+  padding: 0 5px;
+  border: none !important;
+  color: #000000;
+  font-size: 18px;
+  
+}
+.input-search > input:focus {
+    outline-width: 0;
+}
+
+/* Topic-2 */
+.topic-2 {
+    margin-top: 10%;
+    margin-left: 1.8rem;
+}
+
+/* DatePicker */ 
+.DatePicker{
+    margin-top: 53px;
+    position: relative;
+    clear: both;
+    padding: 40px 32px;
+    width: 80%;
+}
+
+/* Search-Button */
+.btn-1{
+    border: none !important;
+    outline: none !important;
+    height: 40px !important;
+    background: #ff0c00 !important;
+    font-size: 20px !important;
+    border-radius: 6px;
+    text-align: center;
+    color: #ffffff;
+    width: 7vw;
+    margin-left: 1.8rem;
+    letter-spacing: 2px;
+    border: none;
+  }
+  
+  /* Mobile Responsive */
+  @media screen and (max-width:960px)
+{
+  .input-search {
+    margin-top: 10%;
+  }
+  .DatePicker {
+    width: 100%;
+  }
+  .topic-2 {
+    font-size: 3vh;
+    margin-top: 21%;
+  }
+  .Search-Form {
+      margin-top: 10%;
+  }
+  .btn-1 {
+    width : 30vw
+  }
+}
