@@ -1,0 +1,71 @@
+/* Landing Page */
+.landing {
+    color: #ffffff;
+    padding-top: 30vh;
+}
+.bgcr {
+    height: 100vh;
+}
+.logo {
+    height: auto;
+    width: 30vh;
+    animation-name: logo;
+    animation-duration: 1.5s;
+  }
+  @keyframes logo {
+    from {
+      margin-top: 90vw;
+    }
+    to {
+      margin-top: 0vw;
+    }
+  }
+
+    
+  .slogan {
+    margin-top: 50px;
+    position: relative;
+    animation-name:slogan;
+    animation-duration: 1.5s;
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 80px;
+    margin-top: 0%;
+    
+  }
+  @keyframes slogan {
+    from {
+      margin-top: -950px;
+    }
+    to {
+      margin-top: 0px;
+    }
+  }
+  .arrow {
+    text-align: center;
+    clear: both;
+    width: 100%;
+    color: #000000;
+}
+.next-btn{
+    width: 67px;
+    height: 67px;
+    display: inline-block;
+    background: #000000;
+    border-radius: 32px;
+    font-size: 32px;
+    line-height: 63px;
+    color: #ffffff;
+}
+@keyframes arrow {
+  from {
+    margin-top: -950px;
+  }
+  to {
+    margin-top: 0px;
+  }
+}
+.arrow-icon {
+    color: #ffffff;
+    margin-bottom: 10%;
+}
