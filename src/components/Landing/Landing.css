@@ -9,7 +9,7 @@
 }
 .logo {
     height: auto;
-    width: 30vh;
+    width: 50vh;
     animation-name: logo;
     animation-duration: 1.5s;
     margin-left: 0.5rem;
@@ -107,8 +107,9 @@
     font-size: 4vh;
 
    }
-   .arrow {
-
+   .slogan-2{
+     
    }
+   
 
  }

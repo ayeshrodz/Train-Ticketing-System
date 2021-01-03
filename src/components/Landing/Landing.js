@@ -2,7 +2,7 @@ import React from 'react'
 import  "./Landing.css"
 import { Link } from 'react-router-dom';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import Logo from "../Images/logo.png"
+import Logo from "../Images/bg-1.jpeg"
 function Landing() {
     return (
         <div>
