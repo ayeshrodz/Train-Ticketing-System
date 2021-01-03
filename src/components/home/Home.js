@@ -39,9 +39,7 @@ function Home() {
           Search
         </button>
       </Form>
-      <div>
-      <img src = {background} className = "background" alt = ""/>
-      </div>
+     
     </div>
   );
 }

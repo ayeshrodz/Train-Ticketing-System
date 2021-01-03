@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
   .bgcr{
     height: 100vh;
     background-color: #ffffff;
@@ -25,7 +25,7 @@
       animation-duration: 1.5s;
       color: #000000;
       font-size: 60px;
-      
+      font-family: 'Roboto', sans-serif;
     }
     @keyframes slogan {
       from {
