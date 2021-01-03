@@ -5,6 +5,7 @@ import { Col, Row } from "reactstrap";
 import "./Home.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "react-bootstrap/Button";
+import background from "../Images/background.jpg"
 
 function Home() {
   return (
@@ -38,6 +39,9 @@ function Home() {
           Search
         </button>
       </Form>
+      <div>
+      <img src = {background} className = "background" alt = ""/>
+      </div>
     </div>
   );
 }

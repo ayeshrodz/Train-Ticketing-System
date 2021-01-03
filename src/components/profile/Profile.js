@@ -15,7 +15,7 @@ function Profile() {
         <h1>Welcome to your Account</h1>
       </div>
       <div className="intro">
-        <p><h4>We are making improvements and introducing new features into My Account experience.</h4></p>
+        <p><h4>We are making improvements and introducing new features into user experience.</h4></p>
         <p><h4>It is now much easier to...</h4></p>
       </div>
       <div className="Navbar">

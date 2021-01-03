@@ -6,6 +6,8 @@ function About() {
     <div className="about">
       {/* Navigation Bar Component */}
       <Header />
+      {/* Navigation Bar Component Ends */}
+
       <h1>About Component</h1>
     </div>
   );
