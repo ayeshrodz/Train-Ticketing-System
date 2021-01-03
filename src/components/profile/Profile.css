@@ -1,0 +1,30 @@
+.Navbar{
+    margin-left:10% ;
+    margin-top:5% ;
+    font-size: x-large;
+    font-weight: bold;
+    
+    
+}
+
+.card{
+    margin-left: 24%;
+    margin-top: -8%;
+    
+}
+
+.heading{
+    margin-top: 3%;
+    text-align: center;
+    font-size: 48px;
+    font-weight: bolder;
+}
+
+.intro{
+    margin-top: 2%;
+    text-align: center;
+    font-size: larger;
+}
+
+
+
