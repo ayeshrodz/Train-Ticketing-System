@@ -24,13 +24,14 @@ function Header() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link href="/review">Review</Nav.Link>
-            <Nav.Link href="/profile">Profile</Nav.Link>
+            <Nav.Link href="/review">REVIEW</Nav.Link>
+            <Nav.Link href="/profile">PROFILE</Nav.Link>
 
-            <NavDropdown title="Admin" id="collasible-nav-dropdown">
+            <NavDropdown title="ADMIN" id="collasible-nav-dropdown">
               <NavDropdown.Item href="/admin/schedules">
-                Schedules
+                SCHEDULES
               </NavDropdown.Item>
+              {/*
               <NavDropdown.Item href="#action/3.2">
                 Another action
               </NavDropdown.Item>
@@ -39,9 +40,10 @@ function Header() {
               <NavDropdown.Item href="#action/3.4">
                 Separated link
               </NavDropdown.Item>
+              */}
             </NavDropdown>
-            <Nav.Link href="/about">About</Nav.Link>
-            <Nav.Link href="/login">Login</Nav.Link>
+            <Nav.Link href="/about">ABOUT</Nav.Link>
+            <Nav.Link href="/auth">LOGIN</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

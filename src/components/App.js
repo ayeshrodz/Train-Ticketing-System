@@ -11,7 +11,6 @@ import NotFound from "./NotFound";
 function App() {
   return (
     <div className="app">
-      {/* Header */}
       <Router>
         <Header />
         <div className="app_body">
@@ -20,7 +19,7 @@ function App() {
             <Route path="/review" component={Review} />
             <Route path="/profile" component={Profile} />
             <Route path="/about" component={About} />
-            <Route path="/login" component={AuthMain} />
+            <Route path="/auth" component={AuthMain} />
             <Route component={NotFound} />
           </Switch>
         </div>
