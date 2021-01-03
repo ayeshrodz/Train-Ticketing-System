@@ -1,0 +1,76 @@
+
+  .bgcr{
+    height: 100vh;
+    background-color: #ffffff;
+  }
+  
+
+  .logo {
+    height: auto;
+    width: 80vh;
+    animation-name: logo;
+    animation-duration: 1.5s;
+  }
+  @keyframes logo {
+    from {
+      margin-top: 90vw;
+    }
+    to {
+      margin-top: 0vw;
+    }
+  }
+  .slogan {
+      position: relative;
+      animation-name:slogan;
+      animation-duration: 1.5s;
+      color: #000000;
+      font-size: 60px;
+      
+    }
+    @keyframes slogan {
+      from {
+        margin-top: -950px;
+      }
+      to {
+        margin-top: 0px;
+      }
+    }
+    .arrow {
+        text-align: center;
+        clear: both;
+        width: 100%;
+        color: #000000;
+    }
+    .next-btn{
+        width: 67px;
+        height: 67px;
+        display: inline-block;
+        background: #f25e42;
+        border-radius: 32px;
+        font-size: 32px;
+        line-height: 63px;
+        color: #ffffff;
+    }
+    @keyframes arrow {
+      from {
+        margin-top: -950px;
+      }
+      to {
+        margin-top: 0px;
+      }
+    }
+    .arrow-right{
+        color: #ffffff;
+        
+      }
+
+      .MuiSvgIcon-root {
+        fill: currentColor !important;
+        width: 1em !important;
+        height: 2em !important;
+        display: inline-block !important;
+        /* font-size: 1.5rem; */
+        transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms !important;
+        flex-shrink: 0 !important;
+        user-select: none !important;
+    }
