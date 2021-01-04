@@ -64,7 +64,7 @@
         
       }
 
-      .MuiSvgIcon-root {
+      .arrow-right {
         fill: currentColor !important;
         width: 1em !important;
         height: 2em !important;
@@ -74,5 +74,5 @@
         flex-shrink: 0 !important;
         -webkit-user-select: none !important;
         user-select: none !important;
-        margin-top: -7%;
+        margin-top: -10%;
     }

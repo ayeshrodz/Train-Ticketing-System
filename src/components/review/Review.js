@@ -8,7 +8,11 @@ function Review() {
       {/* Navigation Bar Component */}
       <Header />
       {/* Navigation Bar Component Ends */}
-      <h1>Review Component</h1>
+      <div className = "card-wrapper">
+        <div>
+          
+        </div>
+      </div>
     </div>
   );
 }

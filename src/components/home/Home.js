@@ -6,6 +6,7 @@ import "./Home.css";
 import TextField from "@material-ui/core/TextField";
 import Button from "react-bootstrap/Button";
 import background from "../Images/background.jpg"
+import {Link} from "react-router-dom"
 
 function Home() {
   return (
@@ -35,9 +36,11 @@ function Home() {
             }}
           />
         </div>
+        <Link to = "/searchresult">
         <button type="button" class="btn-1 btn-primary">
           Search
         </button>
+        </Link>
       </Form>
      
     </div>

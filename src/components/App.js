@@ -8,6 +8,7 @@ import AuthMain from "./auth/AuthMain";
 import Review from "./review/Review";
 import NotFound from "./NotFound";
 import Landing from "./Landing/Landing"
+import SearchResult from "./SearchResult/SearchResult"
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/profile" component={Profile} />
             <Route path="/about" component={About} />
             <Route path="/auth" component={AuthMain} />
+            <Route path = "/searchresult" component = {SearchResult}/>
             <Route component={NotFound} />
           </Switch>
         </div>
