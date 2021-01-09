@@ -7,9 +7,6 @@ import { Card } from "react-bootstrap";
 function Profile() {
   return (
     <div className="profile">
-      {/* Navigation Bar Component */}
-      <Header />
-      {/* Navigation Bar Component End */}
       <div className="heading">
         <h1>Welcome to your Account</h1>
       </div>
