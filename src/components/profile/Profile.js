@@ -1,7 +1,6 @@
 import React from "react";
 import "./Profile.css";
-import Header from "../header/Header";
-import { Navbar, Nav, NavDropdown, CardDeck, CardGroup } from "react-bootstrap";
+import { Nav, CardGroup } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 
 function Profile() {

@@ -1,6 +1,5 @@
 import React from "react";
 import "./Review.css";
-import Header from "../header/Header";
 
 function Review() {
   return (

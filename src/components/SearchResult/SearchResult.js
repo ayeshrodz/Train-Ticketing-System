@@ -1,17 +1,13 @@
 import React from "react";
-import Header from "../header/Header";
 import TextField from "@material-ui/core/TextField";
 import "./SearchResult.css";
 import Form from "react-bootstrap/Form";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import SearchLogo from "../Images/search-result.jpeg"
+import SearchLogo from "../Images/search-result.jpeg";
 
 function SearchResult() {
   return (
     <div>
-      {/* Navigation Bar Component */}
-      <Header />
-      {/* Navigation Bar Component End */}
       <Form className="SearchResult-Form">
         <div className="input-search-result">
           <input placeholder="From" />
@@ -38,12 +34,12 @@ function SearchResult() {
           Search
         </button>
       </Form>
-      <a className = "card-wrapper">
-        <div className = "text-inside">
-            <p>Colombo To Badulla</p>
-            <img src = {SearchLogo} className = "Search-Logo"/>
+      <div className="card-wrapper">
+        <div className="text-inside">
+          <p>Colombo To Badulla</p>
+          <img src={SearchLogo} alt="" className="Search-Logo" />
         </div>
-      </a>
+      </div>
     </div>
   );
 }
