@@ -1,15 +1,11 @@
 import React from "react";
 import "./Profile.css";
-import Header from "../header/Header";
-import { Navbar, Nav, NavDropdown, CardDeck, CardGroup } from "react-bootstrap";
+import { Nav, CardGroup } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 
 function Profile() {
   return (
     <div className="profile">
-      {/* Navigation Bar Component */}
-      <Header />
-      {/* Navigation Bar Component End */}
       <div className="heading">
         <h1>Welcome to your Account</h1>
       </div>
