@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
   .bgcr{
     height: 100vh;
     background-color: #ffffff;
@@ -25,7 +25,7 @@
       animation-duration: 1.5s;
       color: #000000;
       font-size: 60px;
-      
+      font-family: 'Roboto', sans-serif;
     }
     @keyframes slogan {
       from {
@@ -64,7 +64,7 @@
         
       }
 
-      .MuiSvgIcon-root {
+      .arrow-right {
         fill: currentColor !important;
         width: 1em !important;
         height: 2em !important;
@@ -72,5 +72,7 @@
         /* font-size: 1.5rem; */
         transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms !important;
         flex-shrink: 0 !important;
+        -webkit-user-select: none !important;
         user-select: none !important;
+        margin-top: -10%;
     }

@@ -11,7 +11,7 @@ function Landing() {
         <div align="center" className="chin-chin">
           <img src={logo} className="logo" alt="logo" />
           <h1 className="slogan">Chin-Chin</h1>
-          <h2>Online Train Ticket Booking Platform</h2>
+          <h2 className = "heading-2">Online Train Ticket Booking Platform</h2>
         </div>
 
         <div className="arrow" width="100%">
