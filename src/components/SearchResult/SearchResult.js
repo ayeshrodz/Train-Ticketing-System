@@ -41,9 +41,13 @@ function SearchResult() {
       <a className = "card-wrapper">
         <div className = "text-inside">
             <p>Colombo To Badulla</p>
-            <img src = {SearchLogo} className = "Search-Logo"/>
+            
         </div>
       </a>
+
+      <div className = "Result-card-wrapper">
+            <h1>Malli</h1>
+      </div>
     </div>
   );
 }

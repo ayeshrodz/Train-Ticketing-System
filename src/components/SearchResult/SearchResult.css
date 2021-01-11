@@ -60,23 +60,37 @@
 /* Search-Result-Card */
 .card-wrapper {
     float: left !important;
-    background-color: #f25e42;
+    background-color: #a7a7a7;
     width: 47%;
     margin-left: -28%;
     margin-top: 15vh;
     border: none;
-    height: 8vh;
+    height: 6vh;
     cursor: pointer;
+    
 }
 
 /* Text Inside the Card */
 .text-inside {
-    color: #ffffff;
-    font-size: 3vh;
+    color: #000000;
+    font-size: 2vh;
     padding: 12px;
 }
 
 /*  Search-Logo-Icon Inside card */
 .Search-Logo {
+
+}
+ 
+/* Search Result Page Information */
+.Result-card-wrapper {
+    float: left !important;
     
+    width: 40vw;
+    margin-left: 8%;
+    margin-top: 15vh;
+    border: none;
+    height: 60vh;
+    cursor: pointer;
+    border: 5px solid #000000;
 }
