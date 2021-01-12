@@ -18,7 +18,7 @@ export default function Signin() {
       setError("");
       setLoading(true);
       await signin(emailRef.current.value, passwordRef.current.value);
-      history.push("/home");
+      history.push("/profile");
     } catch {
       setError("Failed to sign in");
     }

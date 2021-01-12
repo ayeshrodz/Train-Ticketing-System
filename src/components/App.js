@@ -10,6 +10,8 @@ import Review from "./review/Review";
 import NotFound from "./NotFound";
 import Landing from "./Landing/Landing";
 import SearchResult from "./SearchResult/SearchResult";
+import { AuthProvider } from "../contexts/AuthContext";
+import PrivateRoute from "./auth/PrivateRoute";
 
 function App() {
   return (
@@ -20,13 +22,16 @@ function App() {
           <div className="app_body">
             <Switch>
               <Route exact path="/" component={Landing} />
-
               <Route exact path="/home" component={Home} />
-              <Route path="/review" component={Review} />
-              <Route path="/profile" component={Profile} />
-              <Route path="/about" component={About} />
-              <Route path="/auth" component={AuthMain} />
-              <Route path="/searchresult" component={SearchResult} />
+              <Route exact path="/about" component={About} />
+
+              <AuthProvider>
+                <Route path="/auth" component={AuthMain} />
+                <PrivateRoute exact path="/profile" component={Profile} />
+                <PrivateRoute exact path="/review" component={Review} />
+              </AuthProvider>
+
+              <Route exact path="/searchresult" component={SearchResult} />
               <Route component={NotFound} />
             </Switch>
           </div>

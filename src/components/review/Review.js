@@ -4,7 +4,7 @@ import "./Review.css";
 function Review() {
   return (
     <div className="review">
-      <h1>Review page</h1>
+      <h1>About Component</h1>
     </div>
   );
 }

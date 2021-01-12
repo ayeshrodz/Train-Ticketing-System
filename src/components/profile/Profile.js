@@ -1,14 +1,29 @@
-import React from "react";
-import "./Profile.css";
-import { Nav, CardGroup } from "react-bootstrap";
-import { Card } from "react-bootstrap";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { Button, Alert, Dropdown } from "react-bootstrap";
 import personal from "../Images/PersonalDetails.png";
 import loginsecurity from "../Images/LoginandSecurity.png";
 import review from "../Images/Review.png";
-import user from "../Images/User.png";
-import PersonIcon from '@material-ui/icons/Person';
+import PersonIcon from "@material-ui/icons/Person";
+import { useAuth } from "../../contexts/AuthContext";
+
+import "./Profile.css";
 
 function Profile() {
+  const [error, setError] = useState("");
+  const { currentUser, signout } = useAuth();
+  const history = useHistory();
+
+  async function handleSignout() {
+    setError("");
+    try {
+      await signout();
+      history.push("/auth/signin");
+    } catch {
+      setError("Failed to sign out");
+    }
+  }
+
   return (
     <div className="profile">
       <div className="heading">
@@ -28,7 +43,6 @@ function Profile() {
       <div className="Icons">
         <div>
           <img src={personal} className="personal" alt="personal" width="150" />
-         
         </div>
 
         <div>
@@ -54,10 +68,16 @@ function Profile() {
         <h3>Write Review</h3>
       </div>
       <div className="user">
-        <PersonIcon className = "user"/>
+        <div>
+          <PersonIcon className="user" />
+        </div>
       </div>
       <div className="usertxt">
-        <h5>Dummy User</h5>
+        {error && <Alert variant="danger">{error}</Alert>}
+        {currentUser.email + " "}
+        <Button variant="link" onClick={handleSignout}>
+          Sign Out
+        </Button>
       </div>
     </div>
   );
