@@ -15,12 +15,12 @@ function Home() {
         <div className="input-search">
           <input placeholder="To" />
         </div>
-        <div className="DatePicker">
+        <div className="DatePicker-Search">
           <TextField
             id="date"
             label="Date"
             type="date"
-            className="DatePicker"
+            className="DatePicker-Search"
             defaultValue="2017-05-24"
             InputLabelProps={{
               shrink: true,
