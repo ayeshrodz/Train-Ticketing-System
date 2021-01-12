@@ -1,6 +1,5 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import "./Header.css";
 
 function Header() {
@@ -26,16 +25,16 @@ function Header() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link href="/home">HOME</Nav.Link>
-            <Nav.Link href="/review">REVIEW</Nav.Link>
+            <Nav.Link href="/review">REVIEWS</Nav.Link>
+            <Nav.Link href="/profile">PROFILE</Nav.Link>
+
             <NavDropdown title="ADMIN" id="collasible-nav-dropdown">
               <NavDropdown.Item href="/admin/schedules">
                 SCHEDULES
               </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="/about">ABOUT</Nav.Link>
-            <Nav.Link href="/profile">
-              <AccountCircleIcon />
-            </Nav.Link>
+            <Nav.Link href="/auth">LOGIN</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

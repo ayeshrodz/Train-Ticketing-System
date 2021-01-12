@@ -1,0 +1,98 @@
+/* Search Bar  */
+.search_input-1 {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  border: 1px solid lightgray;
+  border-radius: 999px;
+  width: 75vw;
+  padding: 10px 20px;
+  margin: 0 auto;
+  margin-top: 16px;
+  max-width: 560px;
+}
+  
+.search_input-1 > input {
+  flex: 1;
+  padding: 0px 6px;
+  border: none !important;
+  background: transparent;
+  font-size: 15px;
+}
+.search_input-1 > input:focus {
+outline-width: 0;
+}
+
+
+/* Search-Result-Card */
+.card-wrapper-1 {
+  float: left;
+  background-color: #ffffff;
+  width: 30%;
+  margin-left: 8%;
+  margin-top: 10vh;
+  top: -4%;
+  border: 2px solid rgb(237, 235, 233);
+  height: auto;
+ 
+    
+}
+.card-inside-text-1 {
+  text-align: left;
+  max-height: 150px;
+  margin-left: 30%;
+  margin-top: 3%;
+  line-height: 0vh;
+  
+}
+
+.sub-card-1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 100%;
+    color: #000000;
+    padding: 10px 20px;
+}
+.sub-card-subtitle-1 {
+
+  font-family: 'Roboto', sans-serif;
+    font-size: 100%;
+    color: #000000;
+    padding: 10px 20px;
+}
+
+.color-card-1{
+  width: 30%;
+  height: 20vh;
+  float: left;
+  display: inline-block;
+  position: relative;
+}
+
+.color-card-color{
+  background-color: #f25e42;
+}
+
+/* Person ICons on the Card Wrapper */
+.person-icon {
+  color: #ffffff;
+  font-size: 10vh !important;
+  display: block !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 26%;
+}
+.starIcon {
+  display: block !important;
+  float: right;
+  margin-top: 6%;
+  color:#000000;
+  font-size: 20px;
+}
+
+.icon-unselect {
+  color: #000000;
+}
+
+.icon-select {
+  color: #ffd700;
+}
