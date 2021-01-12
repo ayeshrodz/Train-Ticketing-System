@@ -9,9 +9,7 @@ import SearchLogo from "../Images/search-result.jpeg"
 function SearchResult() {
   return (
     <div>
-      {/* Navigation Bar Component */}
-      <Header />
-      {/* Navigation Bar Component End */}
+     
       <Form className="SearchResult-Form">
         <div className="input-search-result">
           <input placeholder="From" />
@@ -45,9 +43,7 @@ function SearchResult() {
         </div>
       </a>
 
-      <div className = "Result-card-wrapper">
-            <h1>Malli</h1>
-      </div>
+     
     </div>
   );
 }
