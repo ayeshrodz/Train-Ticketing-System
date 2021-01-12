@@ -1,17 +1,4 @@
-.Navbar{
-    margin-left:10% ;
-    margin-top:5% ;
-    font-size: x-large;
-    font-weight: bold;
-    
-    
-}
 
-.card{
-    margin-left: 24%;
-    margin-top: -8%;
-    
-}
 
 .heading{
     margin-top: 3%;
@@ -24,6 +11,56 @@
     margin-top: 2%;
     text-align: center;
     font-size: larger;
+    
+}
+
+.personal{
+    
+    margin-top: 5%;
+    margin-left: 23%;
+        
+}
+
+.loginsecurity{
+    
+    margin-left: 46%;
+    margin-top: -10%;
+}
+
+.review{
+    
+    margin-left: 67%;
+    margin-top: -14%;
+}
+
+.personaltxt{
+    margin-left: 21.5%;
+    margin-top: -2%;
+}
+
+.loginandsecuritytxt{
+    margin-left: 44%;
+    margin-top: -2%;
+}
+
+.reviewtxt{
+    margin-left: 67%;
+    margin-top: -2%;
+}
+
+.user{
+    margin-left: 65%;
+    margin-top: -20%;
+}
+
+.usertxt {
+    margin-left: 3%;
+    /* margin-top: -4%; */
+    display: block;
+    float: right;
+    /* margin: 0 69px; */
+    padding: 10px 70px 0;
+    margin-top: -11vh;
 }
 
 
