@@ -55,7 +55,7 @@ function Profile() {
         </div>
 
         <div>
-          <img src={review} className="review" alt="review" width="150" />
+          <img src={review} className="review-icon" alt="review" width="150" />
         </div>
       </div>
       <div className="personaltxt">
