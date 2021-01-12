@@ -6,6 +6,7 @@ import personal from "../Images/PersonalDetails.png";
 import loginsecurity from "../Images/LoginandSecurity.png";
 import review from "../Images/Review.png";
 import user from "../Images/User.png";
+import PersonIcon from '@material-ui/icons/Person';
 
 function Profile() {
   return (
@@ -53,7 +54,7 @@ function Profile() {
         <h3>Write Review</h3>
       </div>
       <div className="user">
-        <img src={user} className="user" alt="user" width="30" />
+        <PersonIcon className = "user"/>
       </div>
       <div className="usertxt">
         <h5>Dummy User</h5>

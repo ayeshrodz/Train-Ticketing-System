@@ -53,7 +53,9 @@
 /*Dummy user*/
 .user{
     margin-left: 65%;
-    margin-top: -20%;
+    margin-top: -24%;
+    font-size: 30px !important;
+    color: #f25e42;
 }
 
 .usertxt {
@@ -61,7 +63,9 @@
     display: block;
     float: right;
     padding: 10px 70px 0;
-    margin-top: -11vh;
+    margin-top: -7.5rem;
 }
+
+
 
 
