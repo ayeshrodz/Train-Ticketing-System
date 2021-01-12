@@ -43,7 +43,7 @@ function Profile() {
             />
             <Card.Body>
               <Card.Text>
-                <h3>Save detinations for speedy bookings.</h3>
+                <h3>Save destinations for faster bookings.</h3>
               </Card.Text>
             </Card.Body>
           </Card>
