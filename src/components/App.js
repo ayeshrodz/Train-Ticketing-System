@@ -24,13 +24,11 @@ function App() {
               <Route exact path="/" component={Landing} />
               <Route exact path="/home" component={Home} />
               <Route exact path="/about" component={About} />
-
+              <Route exact path="/review" component={Review} />
               <AuthProvider>
                 <Route path="/auth" component={AuthMain} />
                 <PrivateRoute exact path="/profile" component={Profile} />
-                <PrivateRoute exact path="/review" component={Review} />
               </AuthProvider>
-
               <Route exact path="/searchresult" component={SearchResult} />
               <Route component={NotFound} />
             </Switch>
