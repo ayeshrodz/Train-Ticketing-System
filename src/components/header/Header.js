@@ -27,6 +27,7 @@ function Header() {
           <Nav className="ml-auto">
             <Nav.Link href="/home">HOME</Nav.Link>
             <Nav.Link href="/review">REVIEW</Nav.Link>
+            <Nav.Link href="/destination">DESTINATION</Nav.Link>
             <NavDropdown title="ADMIN" id="collasible-nav-dropdown">
               <NavDropdown.Item href="/admin/schedules">
                 SCHEDULES
