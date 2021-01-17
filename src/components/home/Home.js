@@ -12,7 +12,7 @@ function Home() {
 
   function fetchData () {
     if(fromKeyword != "" && toKeyword != "") {
-      window.location.href = '/result?from='+ fromKeyword + '/result?to=' + toKeyword
+      window.location.href = '/searchresult?from='+ fromKeyword + '/searchresult?to=' + toKeyword
     }else {
       alert("no value")
     }
