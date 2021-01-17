@@ -40,9 +40,7 @@ function Home() {
           />
         </div>
         <div className = "next-btn-home">
-        <Link to="/result">
               <ArrowForwardIcon className="arrow-right-home" onClick = {fetchData}/>
-            </Link>
         </div>
       </Form>
     </div>
