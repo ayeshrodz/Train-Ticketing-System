@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Button, Alert, Dropdown } from "react-bootstrap";
 import personal from "../Images/PersonalDetails.png";
 import loginsecurity from "../Images/LoginandSecurity.png";
-import review from "../Images/Review.png";
+import reviews from "../Images/Review.png";
 import PersonIcon from "@material-ui/icons/Person";
 import { useAuth } from "../../contexts/AuthContext";
 
@@ -55,7 +55,7 @@ function Profile() {
         </div>
 
         <div>
-          <img src={review} className="review" alt="review" width="150" />
+          <img src={reviews} className="reviews" alt="reviews" width="150" />
         </div>
       </div>
       <div className="personaltxt">
@@ -64,8 +64,8 @@ function Profile() {
       <div className="loginandsecuritytxt">
         <h3>Login and Security</h3>
       </div>
-      <div className="reviewtxt">
-        <h3>Write Review</h3>
+      <div className="reviewstxt">
+        <h3>Write Reviews</h3>
       </div>
       <div className="user">
         <div>

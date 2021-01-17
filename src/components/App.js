@@ -19,20 +19,20 @@ function App() {
       <Header />
       <div className="App container-fluid">
         <Router>
-          <div className="app_body">
-            <Switch>
-              <Route exact path="/" component={Landing} />
-              <Route exact path="/home" component={Home} />
-              <Route exact path="/about" component={About} />
-              <Route exact path="/review" component={Review} />
-              <AuthProvider>
+          <AuthProvider>
+            <div className="app_body">
+              <Switch>
+                <Route exact path="/" component={Landing} />
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/review" component={Review} />
+                <Route exact path="/searchresult" component={SearchResult} />
                 <Route path="/auth" component={AuthMain} />
                 <PrivateRoute exact path="/profile" component={Profile} />
-              </AuthProvider>
-              <Route exact path="/searchresult" component={SearchResult} />
-              <Route component={NotFound} />
-            </Switch>
-          </div>
+                <Route component={NotFound} />
+              </Switch>
+            </div>
+          </AuthProvider>
         </Router>
       </div>
     </div>
