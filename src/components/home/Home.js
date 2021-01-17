@@ -2,7 +2,6 @@ import React ,{useState} from "react";
 import Form from "react-bootstrap/Form";
 import "./Home.css";
 import TextField from "@material-ui/core/TextField";
-import { Link } from "react-router-dom";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 function Home() {
@@ -11,8 +10,8 @@ function Home() {
   const [toKeyword, setSearchValue] = useState ("");
 
   function fetchData () {
-    if(fromKeyword != "" && toKeyword != "") {
-      window.location.href = '/searchresult?from='+ fromKeyword + '/searchresult?to=' + toKeyword
+    if(fromKeyword !== "" && toKeyword !== "") {
+      window.location.href = '/searchresult?from='+ fromKeyword +  toKeyword
     }else {
       alert("no value")
     }

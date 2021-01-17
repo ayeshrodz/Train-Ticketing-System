@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Button, Alert, Dropdown } from "react-bootstrap";
+import { Button, Alert } from "react-bootstrap";
 import personal from "../Images/PersonalDetails.png";
 import loginsecurity from "../Images/LoginandSecurity.png";
 import reviews from "../Images/Review.png";
