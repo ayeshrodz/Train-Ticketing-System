@@ -10,6 +10,9 @@ import Review from "./review/Review";
 import NotFound from "./NotFound";
 import Landing from "./Landing/Landing";
 import SearchResult from "./SearchResult/SearchResult";
+import { AuthProvider } from "../contexts/AuthContext";
+import PrivateRoute from "./auth/PrivateRoute";
+import Destination from "./Destinations/Destination"
 
 function App() {
   return (
@@ -17,19 +20,21 @@ function App() {
       <Header />
       <div className="App container-fluid">
         <Router>
-          <div className="app_body">
-            <Switch>
-              <Route exact path="/" component={Landing} />
-
-              <Route exact path="/home" component={Home} />
-              <Route path="/review" component={Review} />
-              <Route path="/profile" component={Profile} />
-              <Route path="/about" component={About} />
-              <Route path="/auth" component={AuthMain} />
-              <Route path="/searchresult" component={SearchResult} />
-              <Route component={NotFound} />
-            </Switch>
-          </div>
+          <AuthProvider>
+            <div className="app_body">
+              <Switch>
+                <Route exact path="/" component={Landing} />
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/review" component={Review} />
+                <Route exact path="/searchresult" component={SearchResult} />
+                <Route exact path  = "/destination" component = {Destination}/>
+                <Route path="/auth" component={AuthMain} />
+                <PrivateRoute exact path="/profile" component={Profile} />
+                <Route component={NotFound} />
+              </Switch>
+            </div>
+          </AuthProvider>
         </Router>
       </div>
     </div>

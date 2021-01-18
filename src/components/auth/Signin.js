@@ -18,7 +18,7 @@ export default function Signin() {
       setError("");
       setLoading(true);
       await signin(emailRef.current.value, passwordRef.current.value);
-      history.push("/home");
+      history.push("/profile");
     } catch {
       setError("Failed to sign in");
     }
@@ -40,7 +40,12 @@ export default function Signin() {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
+            <Button
+              disabled={loading}
+              className="w-100"
+              style={{ background: "#f25e42", border: "none" }}
+              type="submit"
+            >
               Sign In
             </Button>
           </Form>

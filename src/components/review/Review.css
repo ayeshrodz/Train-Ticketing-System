@@ -1,0 +1,64 @@
+
+.review {
+    background-color: rgb(236, 0, 0);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    flex: 1 1;
+    display: inline-block;
+    width: 30%;
+    color: rgb(0, 0, 0);
+    clear: both;
+    margin-top: 5%;
+    margin-left: 6%;
+}
+
+.review_header {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.review_body {
+    margin-left: 12px;
+    color: gray;
+    overflow-wrap: anywhere;
+}
+
+.review_info {
+    margin-left: 10px;
+}
+
+.review_info > p {
+    font-size: 12px;
+    color: black;
+}
+.review_info > h2 {
+    font-size: 15px;
+}
+
+.review_icons {
+    display: flex;
+    padding: 0 10px;
+}
+
+.chat {
+    margin-left: 3%;
+}
+
+.share {
+    margin-left: 3%;
+}
+
+.send {
+    margin-left: 3%;
+}
+
+
+@media screen and (max-width:960px)
+{
+    .review {
+        width: 100%;
+        float: left;
+        margin-left: 0vh;
+    }
+}

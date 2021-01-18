@@ -38,14 +38,14 @@
     margin-top: -2%;
 }
 
-/*Review details*/
-.review{
+/*Reviews details*/
+.reviews{
     
     margin-left: 67%;
     margin-top: -14%;
 }
 
-.reviewtxt{
+.reviewstxt{
     margin-left: 67%;
     margin-top: -2%;
 }
@@ -59,7 +59,7 @@
 }
 
 .usertxt {
-    margin-left: 3%;
+    margin-left: 86%;
     display: block;
     float: right;
     padding: 10px 70px 0;

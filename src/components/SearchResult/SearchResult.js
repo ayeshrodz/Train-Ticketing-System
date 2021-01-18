@@ -1,17 +1,17 @@
-import React from "react";
-import Header from "../header/Header";
+import React, { useState, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import "./SearchResult.css";
 import Form from "react-bootstrap/Form";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import SearchLogo from "../Images/search-result.jpeg"
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import firebaseDb from "../../firebase";
 
 function SearchResult() {
+
+ 
+
   return (
     <div>
-      {/* Navigation Bar Component */}
-      <Header />
-      {/* Navigation Bar Component End */}
       <Form className="SearchResult-Form">
         <div className="input-search-result">
           <input placeholder="From" />
@@ -34,19 +34,34 @@ function SearchResult() {
           />
         </div>
 
-        <button type="button" class="btn-search btn-primary">
-          Search
-        </button>
-      </Form>
-      <a className = "card-wrapper">
-        <div className = "text-inside">
-            <p>Colombo To Badulla</p>
-            
+        <div className="next-btn-result">
+          <ArrowForwardIcon className="arrow-right-home" />
         </div>
-      </a>
-
-      <div className = "Result-card-wrapper">
-            <h1>Malli</h1>
+      </Form>
+      <div className="row card-wrapper">
+       
+           <div className="col-sm-4">
+           <div className="card">
+             <div className="card-body">
+               <h5 className="card-title">Colombo - Kandy</h5>
+               <p className="card-text">Start Station :</p>
+               <p className="card-text">End Station :</p>
+               <p className="card-text">Departure Time : </p>
+               <p className="card-text">Destination : </p>
+               <p className="card-text">Arrival at Destination : </p>
+               <p className="card-text">Arrival at End Station :</p>
+               <p className="card-text">Run By : </p>
+               <p className="card-text">Train Name : </p>
+               <p className="card-text">Train Number : </p>
+               <p className="card-text">Train Type : </p>
+ 
+               <a href="#" className="btn btn-success">
+                 Book Now
+               </a>
+             </div>
+           </div>
+         </div>
+      
       </div>
     </div>
   );

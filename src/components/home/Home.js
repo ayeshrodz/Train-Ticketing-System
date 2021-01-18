@@ -1,19 +1,30 @@
-import React from "react";
+import React ,{useState} from "react";
 import Form from "react-bootstrap/Form";
 import "./Home.css";
 import TextField from "@material-ui/core/TextField";
-import { Link } from "react-router-dom";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 function Home() {
+
+  const [fromKeyword, setInput] = useState ("");
+  const [toKeyword, setSearchValue] = useState ("");
+
+  function fetchData () {
+    if(fromKeyword !== "" && toKeyword !== "") {
+      window.location.href = '/searchresult?from='+ fromKeyword +  toKeyword
+    }else {
+      alert("no value")
+    }
+  }
   return (
     <div className="home">
       <h2 className="topic-2">Plan Your Journey With Us</h2>
       <Form className="Search-Form">
         <div className="input-search">
-          <input placeholder="From" />
+          <input placeholder="From" value = {fromKeyword} onChange = {e => setInput(e.target.value)}/>
         </div>
         <div className="input-search">
-          <input placeholder="To" />
+          <input placeholder="To" value = {toKeyword} onChange = {e => setSearchValue(e.target.value)}/>
         </div>
         <div className="DatePicker-Search">
           <TextField
@@ -27,11 +38,9 @@ function Home() {
             }}
           />
         </div>
-        <Link to="/searchresult">
-          <button type="button" class="btn-1 btn-primary">
-            Search
-          </button>
-        </Link>
+        <div className = "next-btn-home">
+              <ArrowForwardIcon className="arrow-right-home" onClick = {fetchData}/>
+        </div>
       </Form>
     </div>
   );

@@ -1,9 +1,11 @@
 import React from "react";
 import Signup from "./Signup";
 import Signin from "./Signin";
+import Profile from "../profile/Profile";
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "../../contexts/AuthContext";
 import { Redirect, Route } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
 import "./AuthMain.css";
 
 export default function AuthMain() {
