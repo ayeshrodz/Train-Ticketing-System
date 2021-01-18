@@ -16,10 +16,22 @@ function Profile() {
   const [error, setError] = useState("");
   const { currentUser, signout } = useAuth();
   const history = useHistory();
-  const [show, setShow] = useState(false);
+  const [PDshow, setPDShow] = useState(false);
+  const [SDshow, setSDShow] = useState(false);
+  // const [WRshow, setWRShow] = useState(false);
+  
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const PDhandleClose = () => {setPDShow(false)};
+  const PDhandleShow = () => {setPDShow(true)};
+
+  const SDhandleClose = () => {setSDShow(false)};
+  const SDhandleShow = () => {setSDShow(true)};
+
+  // const WRhandleClose = () => {setWRShow(false)};
+  // const WRhandleShow = () => {setWRShow(true)};
+
+
+  
 
   async function handleSignout() {
     setError("");
@@ -65,19 +77,21 @@ function Profile() {
           <img src={reviews} className="reviews" alt="reviews" width="150" />
         </div>
       </div>
+
+      {/* Personal Detail */}
       <div className="personaltxt">
         <Button
           id="PersonalDetails"
           size="lg"
           variant="outline-danger"
-          onClick={handleShow}
+          onClick={PDhandleShow}
         >
           Personal Details
         </Button>
 
         <Modal
-          show={show}
-          onHide={handleClose}
+          show={PDshow}
+          onHide={PDhandleClose}
           centered
           target="PersonalDetails"
         >
@@ -100,28 +114,32 @@ function Profile() {
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="secondary" onClick={PDhandleClose}>
               Close
             </Button>
-            <Button variant="outline-danger" onClick={handleClose}>
+            <Button variant="outline-danger" onClick={PDhandleClose}>
               Save Changes
             </Button>
           </Modal.Footer>
         </Modal>
       </div>
+      {/* Personal Detial End */}
+
+
+      Login and Security
       <div className="loginandsecuritytxt">
       <Button
           id="LoginandSecurity"
           size="lg"
           variant="outline-danger"
-          onClick={handleShow}
+          onClick={SDhandleShow}
         >
           Login and Security
         </Button>
 
         <Modal
-          show={show}
-          onHide={handleClose}
+          show={SDshow}
+          onHide={SDhandleClose}
           centered
           target="PersonalDetails1"
         >
@@ -149,21 +167,25 @@ function Profile() {
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="secondary" onClick={SDhandleClose}>
               Close
             </Button>
-            <Button variant="outline-danger" onClick={handleClose}>
+            <Button variant="outline-danger" onClick={SDhandleClose}>
               Save Changes
             </Button>
           </Modal.Footer>
         </Modal>
       </div>
+      {/* Security Detail Ends */}
+
+      {/* Write Review */}
       <div className="reviewstxt">
         <Button
           id="UncontrolledPopover2"
           type="button"
           size="lg"
           variant="outline-danger"
+          
         >
           Write Reviews
         </Button>
