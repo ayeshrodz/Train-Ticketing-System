@@ -17,7 +17,7 @@ function Home() {
     }
   }
   return (
-    <div className="home">
+    <div className="home1">
       <h2 className="topic-2">Plan Your Journey With Us</h2>
       <Form className="Search-Form">
         <div className="input-search">
