@@ -8,7 +8,7 @@ import PersonIcon from "@material-ui/icons/Person";
 import { useAuth } from "../../contexts/AuthContext";
 import { UncontrolledPopover, PopoverHeader, PopoverBody } from "reactstrap";
 import Form from "react-bootstrap/Form";
-
+import Modal from "react-bootstrap/Modal";
 
 import "./Profile.css";
 
@@ -16,6 +16,10 @@ function Profile() {
   const [error, setError] = useState("");
   const { currentUser, signout } = useAuth();
   const history = useHistory();
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   async function handleSignout() {
     setError("");
@@ -63,70 +67,96 @@ function Profile() {
       </div>
       <div className="personaltxt">
         <Button
-          id="UncontrolledPopover"
-          type="button"
+          id="PersonalDetails"
           size="lg"
           variant="outline-danger"
+          onClick={handleShow}
         >
           Personal Details
         </Button>
-        <UncontrolledPopover placement="bottom" target="UncontrolledPopover">
-          <PopoverHeader>Personal Details</PopoverHeader>
-          <PopoverBody>
-            <div className="PersonalPopOver">
+
+        <Modal
+          show={show}
+          onHide={handleClose}
+          centered
+          target="PersonalDetails"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Personal Details</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="PersonalDetailsModal">
               <Form>
                 <Form.Group controlId="formBasicName">
                   <Form.Label>User Name</Form.Label>
-                  <Form.Control type="name" />
+                  <Form.Control type="UserName" />
                 </Form.Group>
 
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" />
+                  <Form.Label>Email Address</Form.Label>
+                  <Form.Control type="Email" />
                 </Form.Group>
               </Form>
             </div>
-          </PopoverBody>
-        </UncontrolledPopover>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="outline-danger" onClick={handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
       <div className="loginandsecuritytxt">
-        <Button
-          id="UncontrolledPopover1"
-          type="button"
+      <Button
+          id="LoginandSecurity"
           size="lg"
           variant="outline-danger"
+          onClick={handleShow}
         >
           Login and Security
         </Button>
-        <UncontrolledPopover placement="bottom" target="UncontrolledPopover1">
-          <PopoverHeader>Login and Security</PopoverHeader>
-          <PopoverBody>
-            <div className="loginandsecurityPopOver">
+
+        <Modal
+          show={show}
+          onHide={handleClose}
+          centered
+          target="PersonalDetails1"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Login and Security</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="LoginandSecurityModal">
               <Form>
-                <Form.Group controlId="formBasicpassword">
-                  <Form.Label>Current Password</Form.Label>
-                  <Form.Control type="password" />
+                <Form.Group controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control type="Password" />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicNewPassword">
+                <Form.Group controlId="formNewPassword">
                   <Form.Label>New Password</Form.Label>
-                  <Form.Control type="password" placeholder="New Password" />
+                  <Form.Control type="Password" />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicRePassword">
+                <Form.Group controlId="formRepassword">
                   <Form.Label>Re-Enter Password</Form.Label>
-                  <Form.Control
-                    type="password"
-                    placeholder="Re-Enter Password"
-                  />
+                  <Form.Control type="Password" />
                 </Form.Group>
-                <Button variant="outline-danger" type="submit">
-                  Submit
-                </Button>
               </Form>
             </div>
-          </PopoverBody>
-        </UncontrolledPopover>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="outline-danger" onClick={handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
       <div className="reviewstxt">
         <Button
@@ -142,7 +172,8 @@ function Profile() {
           <PopoverBody>
             <div className="loginandsecurityPopOver">
               <Form>
-              <Form.Control type="text" placeholder="Write a Review" /><br />
+                <Form.Control type="text" placeholder="Write a Review" />
+                <br />
                 <Button variant="outline-danger" type="submit">
                   Submit
                 </Button>
