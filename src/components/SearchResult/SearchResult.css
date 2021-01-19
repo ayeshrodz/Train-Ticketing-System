@@ -92,3 +92,10 @@
     cursor: pointer;
     border: 5px solid #000000;
 }
+
+/* Book Now Button */
+.book-now {
+    float: left;
+    margin-left: -29%;
+    margin-top: 5%;
+}

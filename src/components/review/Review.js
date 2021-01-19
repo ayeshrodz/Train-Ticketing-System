@@ -37,7 +37,7 @@ function Review() {
         <ThumbUpAltOutlinedIcon title ="Like" className = "like"/> Like
         <ChatOutlinedIcon className = "chat"/> Comment
         <ShareOutlinedIcon className = "share" /> Share
-        <SendOutlinedIcon className = "send" /> Send
+       
       </div>
     </div>
 
