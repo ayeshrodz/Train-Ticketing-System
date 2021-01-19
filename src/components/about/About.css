@@ -1,0 +1,27 @@
+.About {
+    text-align: center;
+  
+}
+ .about{
+    background-image: url(C:\Users\Rashitha\Documents\GitHub\Train-Ticketing-System\src\components\Images\train1.jpg) ;
+    background-blend-mode:luminosity;
+    position: fixed;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    
+    
+}
+.heading{
+    color: white;
+    margin-top: 30vh;
+    
+}
+
+.para1{
+    color: white;
+    margin-left: 60vh;
+    margin-right: 60vh;
+
+}
