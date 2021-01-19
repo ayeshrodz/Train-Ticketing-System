@@ -24,12 +24,10 @@ function SearchResult() {
     <div>
       <Form className="SearchResult-Form">
         <div className="input-search-result">
-          <input placeholder="From" />
-          <ArrowDropDownIcon className="dropdown-icon" />
+          <input placeholder="From" />     
         </div>
         <div className="input-search-result">
           <input placeholder="To" />  
-          <ArrowDropDownIcon className="dropdown-icon" />
         </div>
         <div className="DatePicker-Result">
           <TextField
