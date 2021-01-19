@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import "./Home.css";
 import TextField from "@material-ui/core/TextField";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import IconButton from '@material-ui/core/IconButton';
 
 function Home() {
 
@@ -40,6 +41,9 @@ function Home() {
         </div>
         <div className = "next-btn-home">
               <ArrowForwardIcon className="arrow-right-home" onClick = {fetchData}/>
+              <IconButton>
+        <ArrowForwardIcon className="arrow-right-home"  />
+      </IconButton>
         </div>
       </Form>
     </div>

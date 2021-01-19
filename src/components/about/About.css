@@ -3,7 +3,7 @@
   
 }
  .about{
-    background-image: url(C:\Users\Rashitha\Documents\GitHub\Train-Ticketing-System\src\components\Images\train1.jpg) ;
+    /* background-image: url(C:\Users\Rashitha\Documents\GitHub\Train-Ticketing-System\src\components\Images\train1.jpg) ; */
     background-blend-mode:luminosity;
     position: fixed;
     min-width: 100vw;
@@ -14,14 +14,15 @@
     
 }
 .heading{
-    color: white;
-    margin-top: 30vh;
+    color: rgb(0, 0, 0);
+   
     
 }
 
 .para1{
-    color: white;
+    color: rgb(0, 0, 0);
     margin-left: 60vh;
     margin-right: 60vh;
+    text-align: justify;
 
 }
