@@ -18,9 +18,10 @@ function About() {
       <Carousel >
   <Carousel.Item>
     <img
-      className="d-block w-100"
+      className="d-block w-100 " 
       src={image1} 
       alt="First slide"
+      height ="500px"
       
     />
   </Carousel.Item>
@@ -30,6 +31,7 @@ function About() {
       className="d-block w-100"
       src={image2}
       alt="Second slide"
+      height ="500px"
     />
   </Carousel.Item>
 
@@ -38,6 +40,7 @@ function About() {
       className="d-block w-100"
       src={image3}
       alt="Third slide"
+      height ="500px"
     />
   </Carousel.Item>
 
@@ -46,14 +49,17 @@ function About() {
       className="d-block w-100"
       src={image4}
       alt="Fourth slide"
+      height ="500px"
     />
   </Carousel.Item>
 
   <Carousel.Item>
     <img
-      className="d-block w-100"
+      className="d-block w-100 "
       src={image5}
       alt="Fifth slide"
+      height ="500px"
+      
     />
   </Carousel.Item>
 
@@ -62,6 +68,7 @@ function About() {
       className="d-block w-100"
       src={image6}
       alt="Sixth slide"
+      height ="500px"
     />
   </Carousel.Item>
 
@@ -70,6 +77,7 @@ function About() {
       className="d-block w-100"
       src={image7}
       alt="Seventh slide"
+      height ="500px"
     />
   </Carousel.Item>
 
@@ -78,6 +86,7 @@ function About() {
       className="d-block w-100"
       src={image8}
       alt="Eighth slide"
+      height ="500px"
     />
   </Carousel.Item>
 
@@ -86,6 +95,7 @@ function About() {
       className="d-block w-100"
       src={image9}
       alt="Nineth slide"
+      height ="500px"
     />
   </Carousel.Item>
 
@@ -94,6 +104,7 @@ function About() {
       className="d-block w-100"
       src={image10}
       alt="Tenth slide"
+      height ="500px"
     />
   </Carousel.Item>
 
@@ -102,6 +113,7 @@ function About() {
       className="d-block w-100"
       src={image11}
       alt="Eleventh slide"
+      height ="500px"
     />
   </Carousel.Item>
 
