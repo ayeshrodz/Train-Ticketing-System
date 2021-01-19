@@ -3,123 +3,52 @@ import Carousel from 'react-bootstrap/Carousel'
 import image1 from '../Images/train1.jpg';
 import image2 from '../Images/train2.jpg';
 import image3 from '../Images/train3.jpg';
-import image4 from '../Images/train4.jpg';
-import image5 from '../Images/train5.jpg';
-import image6 from '../Images/train6.jpg';
-import image7 from '../Images/train7.jpg';
-import image8 from '../Images/train8.jpg';
-import image9 from '../Images/train9.jpg';
-import image10 from '../Images/train10.jpg';
-import image11 from '../Images/train11.jpg';
+import "./About.css";
 
 function About() {
   return (
     <div className="about">
-      <Carousel >
-  <Carousel.Item>
-    <img
-      className="d-block w-auto " 
-      src={image1} 
-      alt="First slide"
-      height ="500px"
-      
-    />
-  </Carousel.Item>
+   <Carousel>
+        <Carousel.Item>
+          <img
+            className="d-block w-100 "
+            src={image1}
+            alt="First slide"
+            height="500px"
+          />
+        </Carousel.Item>
 
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={image2}
-      alt="Second slide"
-      height ="500px"
-    />
-  </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={image2}
+            alt="Second slide"
+            height="500px"
+          />
+        </Carousel.Item>
 
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={image3}
-      alt="Third slide"
-      height ="500px"
-    />
-  </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={image3}
+            alt="Third slide"
+            height="500px"
+          />
+        </Carousel.Item>
 
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={image4}
-      alt="Fourth slide"
-      height ="500px"
-    />
-  </Carousel.Item>
+        
+      </Carousel>
+      <div className = "aboutUs" align ="center">
+      <h1>About Us</h1>
+      <p className ="para1">If you’re exploring Sri Lanka for the first time or embarking on your next Sri Lankan adventure, traveling by train is the ideal option to explore the beautiful cities and landscapes of Sri Lanka. We are here to make sure your Sri Lankan journey will remain remarkable. CHIN-CHIN makes it easy and affordable to buy Sri Lankan train tickets online. For daily travelers to far away journey travelers, we let you book your train journey easily, anytime, anywhere. CHIN-CHIN was launched in 2021 where our primary focus is to help our customers connect their interests by train, island wide. We are dedicated to offer the best experience to our customers which includes the following.</p>
+      <p>- Direct real-time connectivity to the Sri Lankan railway system, allowing us to provide the best fares and availability.</p>
+      <p>- eTicketing on most Sri Lankan trains.</p>
+      <p>We look forward to meeting your Sri Lankan train tickets needs.</p>
+      <h3>Plan your Journey with us!</h3>
 
-  <Carousel.Item>
-    <img
-      className="d-block w-100 "
-      src={image5}
-      alt="Fifth slide"
-      height ="500px"
-      
-    />
-  </Carousel.Item>
-
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={image6}
-      alt="Sixth slide"
-      height ="500px"
-    />
-  </Carousel.Item>
-
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={image7}
-      alt="Seventh slide"
-      height ="500px"
-    />
-  </Carousel.Item>
-
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={image8}
-      alt="Eighth slide"
-      height ="500px"
-    />
-  </Carousel.Item>
-
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={image9}
-      alt="Nineth slide"
-      height ="500px"
-    />
-  </Carousel.Item>
-
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={image10}
-      alt="Tenth slide"
-      height ="500px"
-    />
-  </Carousel.Item>
-
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={image11}
-      alt="Eleventh slide"
-      height ="500px"
-    />
-  </Carousel.Item>
-
-  
-</Carousel>
+      </div>
     </div>
+
   );
 }
 
