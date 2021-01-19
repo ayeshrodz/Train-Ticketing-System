@@ -18,7 +18,7 @@ function Profile() {
   const history = useHistory();
   const [PDshow, setPDShow] = useState(false);
   const [SDshow, setSDShow] = useState(false);
-  // const [WRshow, setWRShow] = useState(false);
+  const [WRshow, setWRShow] = useState(false);
   
 
   const PDhandleClose = () => {setPDShow(false)};
@@ -27,8 +27,8 @@ function Profile() {
   const SDhandleClose = () => {setSDShow(false)};
   const SDhandleShow = () => {setSDShow(true)};
 
-  // const WRhandleClose = () => {setWRShow(false)};
-  // const WRhandleShow = () => {setWRShow(true)};
+  const WRhandleClose = () => {setWRShow(false)};
+  const WRhandleShow = () => {setWRShow(true)};
 
 
   
@@ -126,7 +126,7 @@ function Profile() {
       {/* Personal Detial End */}
 
 
-      Login and Security
+      
       <div className="loginandsecuritytxt">
       <Button
           id="LoginandSecurity"
@@ -180,29 +180,42 @@ function Profile() {
 
       {/* Write Review */}
       <div className="reviewstxt">
-        <Button
-          id="UncontrolledPopover2"
-          type="button"
+      <Button
+          id="WriteReviews"
           size="lg"
           variant="outline-danger"
-          
+          onClick={WRhandleShow}
         >
           Write Reviews
         </Button>
-        <UncontrolledPopover placement="bottom" target="UncontrolledPopover2">
-          <PopoverHeader>Write Reviews</PopoverHeader>
-          <PopoverBody>
-            <div className="loginandsecurityPopOver">
+
+        <Modal
+          show={WRshow}
+          onHide={WRhandleClose}
+          centered
+          target="WriteReviews"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Write Reviews</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="WriteReviewsModal">
               <Form>
-                <Form.Control type="text" placeholder="Write a Review" />
-                <br />
-                <Button variant="outline-danger" type="submit">
-                  Submit
-                </Button>
+               
+                  <Form.Control type="text" placeholder = "Write a Review"/>
+            
               </Form>
             </div>
-          </PopoverBody>
-        </UncontrolledPopover>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={WRhandleClose}>
+              Close
+            </Button>
+            <Button variant="outline-danger" onClick={WRhandleClose}>
+              Submit
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
       <div className="user">
         <div>
