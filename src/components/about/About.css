@@ -2,21 +2,9 @@
     text-align: center;
   
 }
- .about{
-    /* background-image: url(C:\Users\Rashitha\Documents\GitHub\Train-Ticketing-System\src\components\Images\train1.jpg) ; */
-    background-blend-mode:luminosity;
-    position: fixed;
-    min-width: 100vw;
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    
-    
-}
-.heading{
+.heading-about{
     color: rgb(0, 0, 0);
-   
-    
+    margin-top: 10%;
 }
 
 .para1{
@@ -24,5 +12,9 @@
     margin-left: 60vh;
     margin-right: 60vh;
     text-align: justify;
-
+    line-height: 200%;
+    font-size: 20px;
+}
+.subhead {
+    text-align: center;
 }

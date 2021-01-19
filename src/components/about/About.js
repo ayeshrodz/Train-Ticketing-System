@@ -4,7 +4,7 @@ import "./About.css";
 function About() {
   return (
     <div className="about" align="center">
-      <div className="heading">
+      <div className="heading-about">
         <h1>About Us</h1>
       </div>
       <div className="para1">
