@@ -18,7 +18,7 @@ function About() {
       <Carousel >
   <Carousel.Item>
     <img
-      className="d-block w-100 " 
+      className="d-block w-auto " 
       src={image1} 
       alt="First slide"
       height ="500px"

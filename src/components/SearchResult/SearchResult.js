@@ -82,7 +82,7 @@ function SearchResult() {
           target="PersonalDetails"
         >
           <Modal.Header closeButton>
-            <Modal.Title>Personal Details</Modal.Title>
+            <Modal.Title>Book Now</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="PersonalDetailsModal">
