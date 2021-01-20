@@ -23,7 +23,7 @@ function Review() {
       <div className = "review_header">
         <Avatar/>
         <div className = "review_info">
-          <h2>Himasara</h2>
+          <h2>Good Person</h2>
           <p>Review</p>
         </div>
       </div>
