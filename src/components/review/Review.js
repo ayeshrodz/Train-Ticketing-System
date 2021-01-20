@@ -3,7 +3,6 @@ import {Avatar} from "@material-ui/core";
 import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
 import ChatOutlinedIcon from '@material-ui/icons/ChatOutlined';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
-import SendOutlinedIcon from '@material-ui/icons/SendOutlined';
 import SearchIcon from "@material-ui/icons/Search";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import "./Review.css"

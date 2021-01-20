@@ -73,6 +73,7 @@ function SearchResult() {
           <ArrowForwardIcon className="arrow-right-home" />
         </div>
       </Form>
+      <div className = "row">
       {Trainschedules.map((TrainSchdule) => (
       <div className="row card-wrapper">
         <div className="col-sm-4">
@@ -149,6 +150,7 @@ function SearchResult() {
         </div>
       </div>
       ))}
+      </div>
     </div>
   );
 }
