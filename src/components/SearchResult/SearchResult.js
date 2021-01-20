@@ -7,10 +7,30 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import firebaseDb from "../../firebase";
 import { Button} from "react-bootstrap";
 import ButtonIncrement from "./ButtonIncrement"
-
+import firestore from "../../firebase";
 import Modal from "react-bootstrap/Modal";
 
+
+
 function SearchResult() {
+  const [Trainschedules, setSchedules] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const ref = firestore.firestore().collection("TrainSchdule");
+
+  function getSchedules() {
+    setLoading(true);
+    ref.onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot.forEach((doc) => {
+        items.push(doc.data());
+      });
+      setSchedules(items);
+      setLoading(false);
+    });
+  }
+  
+
   const [BKshow, setBKShow] = useState(false);
 
   const BKhandleClose = () => {
@@ -19,6 +39,13 @@ function SearchResult() {
   const BKhandleShow = () => {
     setBKShow(true);
   };
+  useEffect(() => {
+    getSchedules();
+  }, []);
+
+  if (loading) {
+    return <h2>Loading..</h2>;
+  }
 
   return (
     <div>
@@ -46,21 +73,22 @@ function SearchResult() {
           <ArrowForwardIcon className="arrow-right-home" />
         </div>
       </Form>
+      {Trainschedules.map((TrainSchdule) => (
       <div className="row card-wrapper">
         <div className="col-sm-4">
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title">Colombo - Kandy</h5>
-              <p className="card-text">Start Station :</p>
-              <p className="card-text">End Station :</p>
-              <p className="card-text">Departure Time : </p>
-              <p className="card-text">Destination : </p>
-              <p className="card-text">Arrival at Destination : </p>
-              <p className="card-text">Arrival at End Station :</p>
-              <p className="card-text">Run By : </p>
-              <p className="card-text">Train Name : </p>
-              <p className="card-text">Train Number : </p>
-              <p className="card-text">Train Type : </p>
+              <h5 className="card-title"> {TrainSchdule.StartStation} to {TrainSchdule.EndStation}</h5>
+              <p className="card-text"><b>Start Station :</b> {TrainSchdule.StartStation}</p>
+              <p className="card-text"><b>End Station :</b> {TrainSchdule.EndStation}</p>
+              <p className="card-text"><b>Departure Time : </b>{TrainSchdule.DepartureTiime} </p>
+              <p className="card-text"><b>Destination :</b> {TrainSchdule.Destination} </p>
+              <p className="card-text"><b>Arrival at Destination :</b> {TrainSchdule.ArrivalDestination} </p>
+              <p className="card-text"><b>Arrival at End Station :</b> {TrainSchdule.ArrivalEndStation}</p>
+              <p className="card-text"><b>Run By :</b> {TrainSchdule.RunBy}</p>
+              <p className="card-text"><b>Train Name :</b> {TrainSchdule.TrainName} </p>
+              <p className="card-text"><b>Train Number :</b>  {TrainSchdule.TrainNumber}</p>
+              <p className="card-text"><b>Train Type :</b> {TrainSchdule.TrainType} </p>
 
               <div className="personaltxt">
         <Button
@@ -120,6 +148,7 @@ function SearchResult() {
           </div>
         </div>
       </div>
+      ))}
     </div>
   );
 }

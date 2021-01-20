@@ -1,59 +1,51 @@
-import React, { useState, useEffect } from "react";
-import { Card } from "react-bootstrap";
-import firestore from "../../firebase";
+import React ,{useState} from "react";
+import Form from "react-bootstrap/Form";
+import "./Home.css";
+import TextField from "@material-ui/core/TextField";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import IconButton from '@material-ui/core/IconButton';
 
 function Home() {
-  const [schedules, setSchedules] = useState([]);
-  const [loading, setLoading] = useState(false);
 
-  const ref = firestore.firestore().collection("schedules");
+  const [fromKeyword, setInput] = useState ("");
+  const [toKeyword, setSearchValue] = useState ("");
 
-  function getSchedules() {
-    setLoading(true);
-    ref.onSnapshot((querySnapshot) => {
-      const items = [];
-      querySnapshot.forEach((doc) => {
-        items.push(doc.data());
-      });
-      setSchedules(items);
-      setLoading(false);
-    });
-  }
-
-  useEffect(() => {
-    getSchedules();
-  }, []);
-
-  if (loading) {
-    return <h2>Loading..</h2>;
+  function fetchData () {
+    if(fromKeyword !== "" && toKeyword !== "") {
+      window.location.href = '/searchresult?from='+ fromKeyword +  toKeyword
+    }else {
+      alert("no value")
+    }
   }
   return (
-    <div className="flex">
-      <div className="row justify-content-md-center">
-        {schedules.map((schedule) => (
-          <div class="col col-lg-3">
-            <Card
-              key={schedule.id}
-              className="shadow-sm bg-white rounded card"
-              border="warning"
-            >
-              <Card.Body>
-                <Card.Title>{schedule.name}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">
-                  {schedule.From} to {schedule.To}
-                </Card.Subtitle>
-                <Card.Text>
-                  Strat Time: {schedule.startingTime} hrs
-                  <br />
-                  End Time: {schedule.endingTime} hrs
-                  <br />
-                  Available Classes: {schedule.classes}
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </div>
-        ))}
-      </div>
+    <div className="home1">
+      <h2 className="topic-2">Plan Your Journey With Us</h2>
+      <Form className="Search-Form">
+        <div className="input-search">
+          <input placeholder="From" value = {fromKeyword} onChange = {e => setInput(e.target.value)}/>
+        </div>
+        <div className="input-search">
+          <input placeholder="To" value = {toKeyword} onChange = {e => setSearchValue(e.target.value)}/>
+        </div>
+        <div className="DatePicker-Search">
+          <TextField
+            id="date"
+            label="Date"
+            type="date"
+            className="DatePicker-Search"
+            defaultValue="2017-05-24"
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+        </div>
+        <div className = "next-btn-home">
+              <ArrowForwardIcon className="arrow-right-home" onClick = {fetchData}/>
+              <IconButton>
+        <ArrowForwardIcon className="arrow-right-home"  />
+      </IconButton>
+        </div>
+      </Form>
     </div>
   );
 }
