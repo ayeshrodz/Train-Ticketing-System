@@ -23,8 +23,11 @@ var date = curr.toISOString().substr(0,10);
     }
   }
   return (
-    <div className="home1">
-      <h2 className="topic-2">Plan Your Journey With Us</h2>
+    <div className = "bgcr">
+      <div className="home1">
+     <div align = "center" className = "chin">
+     <h2 className="topic-2">Plan Your Journey With Us</h2>
+     </div>
       <Form className="Search-Form">
         <div className="input-search">
           <input placeholder="From" value = {fromKeyword} onChange = {e => setInput(e.target.value)}/>
@@ -46,12 +49,10 @@ var date = curr.toISOString().substr(0,10);
           />
         </div>
         <div className = "next-btn-home">
-              <ArrowForwardIcon className="arrow-right-home" onClick = {fetchData}/>
-              <IconButton>
-        <ArrowForwardIcon className="arrow-right-home"  />
-      </IconButton>
+              <ArrowForwardIcon className="arrow-right-home" onClick = {fetchData}/> 
         </div>
       </Form>
+    </div>
     </div>
   );
 }

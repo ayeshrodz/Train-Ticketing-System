@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200&display=swap');
 /* Search Input Bar */
 .home1 {
   margin-left: 30%;
@@ -9,6 +9,11 @@
 }   
 .Search-Form {
   margin-left: -2%;
+}
+.bgcr {
+  height: 100vh;
+  background-color: #ffffff;
+  
 }
 /* Search-Result Input Bar */
 
@@ -40,13 +45,19 @@ font-size: 18px;
 }
 /* DatePicker */ 
 .DatePicker-Search{
-  margin-top: 8px !important;
+  margin-top: 10px !important;
     position: absolute;
     clear: both;
     width: 30%;
     margin-left: 24% !important;
 }
-
+.topic-2 {
+  text-align: center;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 40px;
+    margin-left: -45%;
+  
+}
 /* Search-Button */
 .btn-1{
   border: none !important;
@@ -80,13 +91,13 @@ font-size: 18px;
     float: left;
     border: none;
     border-bottom: 1px solid #000000;
-    margin-left: -33%;
+    margin-left: -10%;
   }
   .DatePicker-Search {
-    width: 100%;
+    width: 84%;
     display: contents;
-    margin-left: -33% !important;
-    margin-top: 12% !important;
+    margin-left: -9% !important;
+    margin-top: 13% !important;
   }
   .topic-2 {
     font-size: 4vh;
@@ -95,7 +106,7 @@ font-size: 18px;
   }
   .Search-Form {
       margin-top: 10%;
-      margin-left: 4%;
+      
   }
   .btn-1 {
     width: 30vw;
@@ -105,6 +116,12 @@ font-size: 18px;
 
   .dropdwon-icon {
     display: none !important;
+  }
+  .next-btn-home {
+    
+    margin-top: 80%;
+    margin-left: 3%;
+
   }
  
 }
@@ -119,25 +136,19 @@ font-size: 18px;
   flex-shrink: 0 !important;
   -webkit-user-select: none !important;
   user-select: none !important;
-  margin-top: -10%;
+  margin-top: -5%;
   color: #ffffff;
-  margin-left: 14%;
+  margin-left: 16%;
 
 }
 
 .next-btn-home {
-  
   width: 67px;
-  height: 67px;
-  display: inline-block;
-  background: #f25e42;
-  border-radius: 32px;
-  font-size: 32px;
-  line-height: 63px;
-  color: #ffffff;
-  margin-top: 10%;
-  float: left;
-  margin: 0 -16%;
-  margin-top: 13%;
-
+    height: 67px;
+    display: inline-flex;
+    background: #000000;
+    border-radius: 32px;
+    font-size: 32px;
+    margin-left: -20vh;
+    margin-top: 18vh;
 }
