@@ -1,10 +1,8 @@
-.About {
-    text-align: center;
-  
-}
+
 .heading-about{
     color: rgb(0, 0, 0);
-    margin-top: 10%;
+    margin-top: -90vh;
+    text-align: center;
 }
 
 .para1{
@@ -14,7 +12,19 @@
     text-align: justify;
     line-height: 200%;
     font-size: 20px;
+    text-align: center;
 }
 .subhead {
     text-align: center;
+    font-weight: bold;
+    font-size: 36px;
+    margin-top: 3vh;
+
+}
+
+.background{
+   
+    margin-top: 30vh;
+    margin-left: 45vh;
+    
 }

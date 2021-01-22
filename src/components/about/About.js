@@ -1,9 +1,14 @@
 import React from "react";
 import "./About.css";
+import RailwayStation from "../Images/RailwayStation.jpg";
 
 function About() {
+  console.log(RailwayStation );
   return (
-    <div className="about" align="center">
+    <div >
+    <div className = "background">
+<img src = {RailwayStation } alt = "RailwayStationImage" width = {1000} />
+</div>
       <div className="heading-about">
         <h1>About Us</h1>
       </div>
@@ -23,7 +28,7 @@ function About() {
         </p>
 
         <div className="subhead">
-          <h3>Plan your Journey with us!</h3>
+          <p>Plan your Journey with us!</p>
         </div>
       </div>
     </div>
