@@ -7,13 +7,16 @@
     flex: 1 1;
     display: inline-block;
     width: 30%;
+    height: auto;
     color: rgb(0, 0, 0);
     clear: both;
     margin-top: 5%;
     margin-left: 6%;
-    box-shadow: rgb(0, 0, 0) 5px 5px;
-
+    transition: box-shadow .3s;
 }
+.review:hover {
+    box-shadow: 0 0 11px rgba(0, 0, 0, 0.884); 
+  }
 
 .review_header {
     display: flex;

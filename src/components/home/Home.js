@@ -5,10 +5,15 @@ import TextField from "@material-ui/core/TextField";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import IconButton from '@material-ui/core/IconButton';
 
+
 function Home() {
 
   const [fromKeyword, setInput] = useState ("");
   const [toKeyword, setSearchValue] = useState ("");
+
+  var curr = new Date();
+curr.setDate(curr.getDate() + 0);
+var date = curr.toISOString().substr(0,10);
 
   function fetchData () {
     if(fromKeyword !== "" && toKeyword !== "") {
@@ -18,8 +23,11 @@ function Home() {
     }
   }
   return (
-    <div className="home1">
-      <h2 className="topic-2">Plan Your Journey With Us</h2>
+    <div className = "bgcr">
+      <div className="home1">
+     <div align = "center" className = "chin">
+     <h2 className="topic-2">Plan Your Journey With Us</h2>
+     </div>
       <Form className="Search-Form">
         <div className="input-search">
           <input placeholder="From" value = {fromKeyword} onChange = {e => setInput(e.target.value)}/>
@@ -29,23 +37,22 @@ function Home() {
         </div>
         <div className="DatePicker-Search">
           <TextField
+            type = "date"
             id="date"
             label="Date"
             type="date"
             className="DatePicker-Search"
-            defaultValue="2017-05-24"
+            defaultValue={date}
             InputLabelProps={{
               shrink: true,
             }}
           />
         </div>
         <div className = "next-btn-home">
-              <ArrowForwardIcon className="arrow-right-home" onClick = {fetchData}/>
-              <IconButton>
-        <ArrowForwardIcon className="arrow-right-home"  />
-      </IconButton>
+              <ArrowForwardIcon className="arrow-right-home" onClick = {fetchData}/> 
         </div>
       </Form>
+    </div>
     </div>
   );
 }

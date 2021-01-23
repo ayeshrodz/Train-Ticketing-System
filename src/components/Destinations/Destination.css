@@ -36,7 +36,7 @@
   }
 
 
-  .destination-wrapper {
+  .desti-wrapper {
     max-width: 365px;
     margin-top: 70px;
     clear: both;
@@ -44,6 +44,7 @@
     display: inline-block;
     float: left;
     margin-left: 7%;
+    background-color: blue;
   }
 
 @media screen and (max-width:960px)
@@ -51,4 +52,12 @@
     .destination-wrapper {
         margin: 30px auto;
     }
+}
+
+.background-img {
+  max-width: 600px;
+  margin-top: 10%;
+}
+.card-img {
+  width: 130% !important;
 }
