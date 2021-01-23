@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200&display=swap');
   .bgcr{
     height: 100vh;
     background-color: #ffffff;
@@ -25,7 +25,7 @@
       animation-duration: 1.5s;
       color: #000000;
       font-size: 60px;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'IBM Plex Sans', sans-serif;
     }
     @keyframes slogan {
       from {
@@ -75,4 +75,7 @@
         -webkit-user-select: none !important;
         user-select: none !important;
         margin-top: -10%;
+    }
+    .heading-2 {
+      font-family: 'IBM Plex Sans', sans-serif;
     }
