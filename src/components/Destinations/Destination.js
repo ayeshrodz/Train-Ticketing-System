@@ -39,44 +39,10 @@ function Destination() {
         </div>
       </div>
 
+      <div className = "desti-wrapper">
 
-      <CardDeck>
-  <Card>
-    <Card.Img variant="top" src={bg} />
-  </Card>
-  <Card>
-    <Card.Img variant="top" src={bg} />
-  </Card>
-  <Card>
-    <Card.Img variant="top" src={bg} />
-  </Card>
-</CardDeck>
-
-<CardDeck>
-  <Card>
-    <Card.Img variant="top" src={bg} />
-  </Card>
-  <Card>
-    <Card.Img variant="top" src={bg} />
-  </Card>
-  <Card>
-    <Card.Img variant="top" src={bg} />
-  </Card>
-</CardDeck>
-
-<CardDeck>
-  <Card>
-    <Card.Img variant="top" src={bg} />
-  </Card>
-  <Card>
-    <Card.Img variant="top" src={bg} />
-  </Card>
-  <Card>
-    <Card.Img variant="top" src={bg} />
-  </Card>
-</CardDeck>
-
-      
+        
+      </div>
      </div>
   );
 }
