@@ -1,40 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200&display=swap');
   .bgcr{
     height: 100vh;
     background-color: #ffffff;
   }
   
+  
 
-  .logo {
-    height: auto;
-    width: 80vh;
-    animation-name: logo;
-    animation-duration: 1.5s;
-  }
-  @keyframes logo {
-    from {
-      margin-top: 90vw;
-    }
-    to {
-      margin-top: 0vw;
-    }
-  }
-  .slogan {
-      position: relative;
-      animation-name:slogan;
-      animation-duration: 1.5s;
-      color: #000000;
-      font-size: 60px;
-      font-family: 'IBM Plex Sans', sans-serif;
-    }
-    @keyframes slogan {
-      from {
-        margin-top: -950px;
-      }
-      to {
-        margin-top: 0px;
-      }
-    }
+    
     .arrow {
         text-align: center;
         clear: both;
@@ -76,6 +47,59 @@
         user-select: none !important;
         margin-top: -10%;
     }
-    .heading-2 {
-      font-family: 'IBM Plex Sans', sans-serif;
-    }
+    
+
+.go-to {
+  background:   #f0ad4e;
+}
+
+.go-to-link{
+  font-size: 18px;
+}
+
+.go-to-link:link{
+  color: black;
+  padding: 5px 10px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.heading-1 {
+  position: relative;
+  animation-name:slogan;
+  animation-duration: 1.5s;
+  color: #000000;
+  font-size: 60px;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+@keyframes slogan {
+  from {
+    margin-top: -950px;
+  }
+  to {
+    margin-top: 0px;
+  }
+}
+
+.heading-2 {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.logo {
+  height: auto;
+  width: 80vh;
+  animation-name: logo;
+  animation-duration: 1.5s;
+}
+
+
+@keyframes logo {
+  from {
+    margin-top: 90vw;
+  }
+  to {
+    margin-top: 0vw;
+  }
+}
