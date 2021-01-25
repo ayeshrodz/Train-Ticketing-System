@@ -5,7 +5,7 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 function Destination() {
   return (
-    <div className="row">
+    <div className="row desination-row">
       <div className="card-wrapper"></div>
       <div className="card-wrapper"></div>
       <div className="card-wrapper"></div>
