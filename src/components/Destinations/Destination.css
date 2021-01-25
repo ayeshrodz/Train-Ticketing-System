@@ -1,63 +1,14 @@
-.search-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-.search_input {
-    display: flex;
-    align-items: center;
-    border: 1px solid lightgray;
-    border-radius: 999px;
-    width: 75vw;
-    padding: 10px 20px;
-    margin: 0 auto;
-    margin-top: 40px;
-    max-width: 560px;
-    float: left;
-    align-items: center;
-    border-radius: 50px;
-    line-height: 40px;
-    width: 89%;
-    padding: 0 1%;
-    display: flex;
-      
-  }
-  
-  
-  .search_input > input {
-    flex: 1;
-    padding: 0 5px;
-    border: none !important;
-    background: transparent;
-    font-size: 15px;
-  }
-  .search_input > input:focus {
-    outline-width: 0;
-  }
-
-
-  .desti-wrapper {
-    max-width: 365px;
-    margin-top: 70px;
-    clear: both;
-    flex: 1;
-    display: inline-block;
-    float: left;
-    margin-left: 7%;
-    background-color: blue;
-  }
-
-@media screen and (max-width:960px)
-{
-    .destination-wrapper {
-        margin: 30px auto;
-    }
+.card-wrapper {
+  width: 300px;
+  height: 530px;
+  display: inline-block;
+  border-radius: 15px 25px;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: auto;
+  background-color: coral !important;
+ margin-bottom: 10px;
 }
-
-.background-img {
-  max-width: 600px;
-  margin-top: 10%;
-}
-.card-img {
-  width: 130% !important;
+.row {
+  padding: 9%;
 }
