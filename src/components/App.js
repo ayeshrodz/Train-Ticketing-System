@@ -41,7 +41,8 @@ function App() {
         <p>
           Train Ticketing Platform - ECU Final Project.
           <br />
-          Copyright @2021 <a href="#">Back to top</a>
+          Copyright @2021 {""}
+          <a href="#">Back to top</a>
         </p>
       </footer>
     </div>
