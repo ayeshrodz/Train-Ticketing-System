@@ -56,7 +56,7 @@ function Home() {
 
   async function fetchStations() {
     setLoading(true);
-    await Stations.onSnapshot((querySnapshot) => {
+    await Stations.orderBy("name").onSnapshot((querySnapshot) => {
       const items = [];
       querySnapshot.forEach((doc) => {
         items.push(doc.data());
