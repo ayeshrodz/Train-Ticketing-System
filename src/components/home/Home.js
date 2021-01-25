@@ -40,6 +40,7 @@ function Home() {
 
   const ref = firestore.firestore().collection("TrainSchdule");
   const Stations = firestore.firestore().collection("stations");
+  const citiesRef = firestore.firestore().collection("schedules");
 
   async function getSchedules() {
     setLoading(true);
@@ -67,6 +68,14 @@ function Home() {
     });
   }
 
+  async function getAllDate() {
+    setLoading(true);
+    const snapshot = await citiesRef.get();
+    snapshot.forEach((doc) => {
+      setLoading(false);
+    });
+  }
+
   async function handleSearch(e) {
     await ref
       .where("StartStation", "==", searchNameRef.current.value)
@@ -85,6 +94,7 @@ function Home() {
   useEffect(() => {
     getSchedules();
     fetchStations();
+    getAllDate();
   }, []);
 
   if (loading) {
@@ -224,7 +234,7 @@ function Home() {
           {schedules.map((schedule) => (
             <Card
               key={schedule.id}
-              className="mt-2 hover-shadow-sm bg-white rounded card train-schedule"
+              className="mt-2 hover-shadow-sm bg-white rounded col-md train-schedule"
               border="warning"
             >
               <Card.Body>
