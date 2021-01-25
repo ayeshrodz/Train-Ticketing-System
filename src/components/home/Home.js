@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Form,
   Container,
@@ -19,9 +19,11 @@ import "./Home.css";
 function Home() {
   const [schedules, setSchedules] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [search, setSearch] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
+  const [stations, setStations] = useState([]);
+
+  const searchNameRef = useRef();
 
   const [state, toggle] = useState(true);
   const { x } = useSpring({
@@ -37,21 +39,52 @@ function Home() {
   };
 
   const ref = firestore.firestore().collection("TrainSchdule");
+  const Stations = firestore.firestore().collection("stations");
 
-  function getSchedules() {
+  async function getSchedules() {
     setLoading(true);
-    ref.limit(12).onSnapshot((querySnapshot) => {
+    await ref.limit(6).onSnapshot((querySnapshot) => {
       const items = [];
       querySnapshot.forEach((doc) => {
         items.push(doc.data());
       });
+      console.log(items);
       setSchedules(items);
       setLoading(false);
     });
   }
 
+  async function fetchStations() {
+    setLoading(true);
+    await Stations.onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot.forEach((doc) => {
+        items.push(doc.data());
+      });
+      setStations(items);
+      setLoading(false);
+      console.log(items);
+    });
+  }
+
+  async function handleSearch(e) {
+    await ref
+      .where("StartStation", "==", searchNameRef.current.value)
+      .limit(30)
+      .onSnapshot((querySnapshot) => {
+        const items = [];
+        querySnapshot.forEach((doc) => {
+          items.push(doc.data());
+        });
+        console.log(items);
+        setSchedules(items);
+        setLoading(false);
+      });
+  }
+
   useEffect(() => {
     getSchedules();
+    fetchStations();
   }, []);
 
   if (loading) {
@@ -88,7 +121,7 @@ function Home() {
               </Accordion.Toggle>
               <Accordion.Collapse eventKey="0">
                 <Card.Body>
-                  <Form>
+                  <Form onSubmit={handleSearch}>
                     <Row>
                       <Col lg={3} className="pl-4">
                         <Form.Group id="date">
@@ -107,26 +140,45 @@ function Home() {
                           />
                         </Form.Group>
                       </Col>
-                      <Col lg={9}>
+                      <Col
+                        lg={9}
+                        className="justify-content-center center-block"
+                      >
                         <Row>
                           <Col lg={6}>
                             <Form.Group id="from">
                               <Form.Label>From:</Form.Label>
-                              <Form.Control
-                                type="input"
-                                required
-                                placeholder="Type Station Name"
-                              />
+                              <select
+                                class="form-control"
+                                id="fromStationSelect"
+                              >
+                                {stations.map((station) => (
+                                  <option
+                                    key={station.name}
+                                    value={station.name}
+                                  >
+                                    {station.name}
+                                  </option>
+                                ))}
+                              </select>
                             </Form.Group>
                           </Col>
                           <Col lg={6}>
                             <Form.Group id="to">
                               <Form.Label>To:</Form.Label>
-                              <Form.Control
-                                type="input"
-                                required
-                                placeholder="Type Station Name"
-                              />
+                              <select
+                                class="form-control"
+                                id="fromStationSelect"
+                              >
+                                {stations.map((station) => (
+                                  <option
+                                    key={station.name}
+                                    value={station.name}
+                                  >
+                                    {station.name}
+                                  </option>
+                                ))}
+                              </select>
                             </Form.Group>
                           </Col>
                         </Row>
@@ -136,7 +188,6 @@ function Home() {
                               <Form.Label>Name:</Form.Label>
                               <Form.Control
                                 type="input"
-                                required
                                 placeholder="Type the Name of the Train"
                               />
                             </Form.Group>
@@ -164,8 +215,11 @@ function Home() {
           </Accordion>
         </animated.div>
       </div>
+      <div className="pt-4">
+        <h2 className="train-list">Available Trains for you</h2>
+      </div>
 
-      <div className="row justify-content-md-center">
+      <div className="justify-content-md-center">
         <CardColumns>
           {schedules.map((schedule) => (
             <Card
