@@ -233,7 +233,7 @@ function Home() {
                   {schedule.StartStation} to {schedule.EndStation}
                 </Card.Subtitle>
                 <Card.Text>
-                  Strat Time: {schedule.ArrivalStation} hrs
+                  Start Time: {schedule.ArrivalStation} hrs
                   <br />
                   End Time: {schedule.ArrivalDestination} hrs
                   <br />
