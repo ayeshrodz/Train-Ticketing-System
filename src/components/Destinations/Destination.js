@@ -17,18 +17,17 @@ function Destination() {
   //   })
   // })
   return (
-    <div>
-      <div className="search-body">
-        <div className=" search_input">
-          <SearchIcon className="search_inputIcon" />
-          <input placeholder="Destination" />
+   <div className = "row">
+     <div className = "card-wrapper">
 
-          <ArrowForwardIcon type="submit" className="search_inputIcon" />
-        </div>
-      </div>
+     </div>
+     <div className = "card-wrapper">
 
-      <div className="desti-wrapper"></div>
-    </div>
+     </div>
+     <div className = "card-wrapper">
+
+     </div>
+   </div>
   );
 }
 
