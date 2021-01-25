@@ -1,24 +1,34 @@
-import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import "./Home.css";
-import TextField from "@material-ui/core/TextField";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import IconButton from "@material-ui/core/IconButton";
-import From from "./From";
-import Autocomplete from "@material-ui/lab/Autocomplete";
+import React, { useState, useEffect } from "react";
+import {
+  Form,
+  Container,
+  Accordion,
+  Card,
+  Row,
+  Col,
+  Button,
+  CardColumns,
+} from "react-bootstrap";
 import firestore from "../../firebase";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "./Home.css";
 
 function Home() {
-  const [fromKeyword, setInput] = useState("");
-  const [toKeyword, setSearchValue] = useState("");
-
-  const [Trainschedules, setSchedules] = useState([]);
+  const [schedules, setSchedules] = useState([]);
   const [loading, setLoading] = useState(false);
-  const ref = firestore.firestore().collection("TrainSchdule");
-  const defaultProps = {
-    options: Trainschedules,
-    getOptionLabel: (TrainSchdule) => TrainSchdule.title,
+  const [search, setSearch] = useState("");
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(null);
+
+  const onChange = (dates) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
   };
+
+  const ref = firestore.firestore().collection("TrainSchdule");
+
   function getSchedules() {
     setLoading(true);
     ref.onSnapshot((querySnapshot) => {
@@ -30,76 +40,100 @@ function Home() {
       setLoading(false);
     });
   }
-  const flatProps = {
-    TrainSchdule: Trainschedules.map(
-      (TrainSchdule) => TrainSchdule.StartStation
-    ),
-  };
 
-  const [value, setValue] = React.useState(null);
+  useEffect(() => {
+    getSchedules();
+  }, []);
 
-  var curr = new Date();
-  curr.setDate(curr.getDate() + 3);
-  var date = curr.toISOString().substr(0, 10);
-
-  function fetchData() {
-    if (fromKeyword !== "" && toKeyword !== "") {
-      window.location.href = "/searchresult?from=" + fromKeyword + toKeyword;
-    } else {
-      alert("no value");
-    }
+  if (loading) {
+    return <h2>Loading..</h2>;
   }
+
   return (
-    <div className="home1">
-      <h2 className="topic-2">Plan Your Journey With Us</h2>
-      <Form className="Search-Form">
-        <div>
-          {/* <input placeholder="From" value = {fromKeyword} onChange = {e => setInput(e.target.value)}/> */}
-          <div className="input-search">
-            <Autocomplete
-              className="input-search"
-              {...defaultProps}
-              id="clear-on-escape"
-              clearOnEscape
-              value={fromKeyword}
-                onChange={(e) => setInput(e.target.value)}
-              renderInput={(params) => (
-                <TextField {...params} label="From" margin="normal"   />
-              )}
-            />
-          </div>
+    <Container>
+      <Accordion className="mb-4 search">
+        <Card className="search" id="search">
+          <Accordion.Toggle as={Card.Header} eventKey="0">
+            Let's find your Train..
+          </Accordion.Toggle>
+          <Accordion.Collapse eventKey="0">
+            <Card.Body>
+              <Form>
+                <Row>
+                  <Col lg={4}>
+                    <Form.Group id="from">
+                      <Form.Label>From:</Form.Label>
+                      <Form.Control
+                        size="lg"
+                        type="input"
+                        required
+                        placeholder="Type Station Name"
+                      />
+                    </Form.Group>
+                  </Col>
+                  <Col lg={4}>
+                    <Form.Group id="to">
+                      <Form.Label>To:</Form.Label>
+                      <Form.Control
+                        size="lg"
+                        type="input"
+                        required
+                        placeholder="Type Station Name"
+                      />
+                    </Form.Group>
+                  </Col>
+                  <Col lg={4}>
+                    <Form.Group id="date">
+                      <Form.Label>Date</Form.Label>
+                      <br />
+                      <DatePicker
+                        className="datePicker lg-4"
+                        selected={startDate}
+                        onChange={onChange}
+                        dateFormat="dd-MMM-yyyy"
+                        startDate={startDate}
+                        endDate={endDate}
+                        minDate={new Date()}
+                        selectsRange
+                        inline
+                      />
+                    </Form.Group>
+                  </Col>
+                </Row>
+              </Form>
+            </Card.Body>
+          </Accordion.Collapse>
+        </Card>
+      </Accordion>
+      <Container>
+        <div className="row justify-content-md-center">
+          <CardColumns>
+            {schedules.map((schedule) => (
+              <Card
+                key={schedule.id}
+                className="mt-2 hover-shadow-sm bg-white rounded card train-schedule"
+                border="warning"
+              >
+                <Card.Body>
+                  <Card.Title>{schedule.TrainName}</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">
+                    {schedule.StartStation} to {schedule.EndStation}
+                  </Card.Subtitle>
+                  <Card.Text>
+                    Strat Time: {schedule.ArrivalStation} hrs
+                    <br />
+                    End Time: {schedule.ArrivalDestination} hrs
+                    <br />
+                    Available Classes: {schedule.Classes}
+                  </Card.Text>
+                  <Button variant="outline-warning">Reserve Now</Button>
+                </Card.Body>
+              </Card>
+            ))}
+          </CardColumns>
         </div>
-        <div className="input-search">
-          <Autocomplete
-            className="input-search"
-            {...defaultProps}
-            id="clear-on-escape"
-            clearOnEscape
-            value={toKeyword}
-              onChange={(e) => setInput(e.target.value)}
-            renderInput={(params) => (
-              <TextField {...params} label="To" margin="normal"  />
-            )}
-          />
-        </div>
-        <div className="DatePicker-Search">
-          <TextField
-            type="date"
-            id="date"
-            label="Date"
-            type="date"
-            className="DatePicker-Search"
-            defaultValue={date}
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-        </div>
-        <div className="next-btn-home">
-          <ArrowForwardIcon className="arrow-right-home" onClick={fetchData} />
-        </div>
-      </Form>
-    </div>
+      </Container>
+    </Container>
   );
 }
 
