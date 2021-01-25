@@ -39,3 +39,10 @@
   align-content: center;
   justify-content: center;
 }
+
+.train-list {
+  font-weight: bold;
+  font-style: oblique;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 20px;
+}
