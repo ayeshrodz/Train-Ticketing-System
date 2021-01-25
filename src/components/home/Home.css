@@ -151,3 +151,23 @@ font-size: 18px;
     margin-left: -20vh;
     margin-top: 18vh;
 }
+
+.train-schedule:hover {
+  box-shadow: 0 2px 15px rgba(211, 114, 17, 0.5); 
+}
+
+.train-schedule {
+  display: inline-block;
+  height: auto;
+  clear: both;
+  transition: box-shadow .4s;
+}
+
+.search, .search-header{
+  background-color: transparent !important;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.search {
+  box-shadow: 0 2px 15px 0 rgba(110, 130, 208, 0.18);
+}
