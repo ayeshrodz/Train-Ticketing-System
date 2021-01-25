@@ -29,7 +29,9 @@ function Review() {
   }, []);
 
   if (loading) {
-    return <h2>Loading..</h2>;
+    return  <div className="loading-screen">
+    <h2>Loading Content of Review Page...</h2>
+  </div>;
   }
 
   return (
