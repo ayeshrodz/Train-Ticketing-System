@@ -12,7 +12,7 @@ import Landing from "./Landing/Landing";
 import SearchResult from "./SearchResult/SearchResult";
 import { AuthProvider } from "../contexts/AuthContext";
 import PrivateRoute from "./auth/PrivateRoute";
-import Destination from "./Destinations/Destination"
+import Destination from "./Destinations/Destination";
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
                 <Route exact path="/about" component={About} />
                 <Route exact path="/review" component={Review} />
                 <Route exact path="/searchresult" component={SearchResult} />
-                <Route exact path  = "/destination" component = {Destination}/>
+                <Route exact path="/destination" component={Destination} />
                 <Route path="/auth" component={AuthMain} />
                 <PrivateRoute exact path="/profile" component={Profile} />
                 <Route component={NotFound} />
@@ -37,6 +37,13 @@ function App() {
           </AuthProvider>
         </Router>
       </div>
+      <footer class="ttp-footer">
+        <p>
+          Train Ticketing Platform - ECU Final Project.
+          <br />
+          Copyright @2021 <a href="#">Back to top</a>
+        </p>
+      </footer>
     </div>
   );
 }

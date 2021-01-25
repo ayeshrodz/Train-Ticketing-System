@@ -1,156 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200&display=swap');
-/* Search Input Bar */
-.home1 {
-  margin-left: 30%;
-    margin-top: 15%;
-}
-.dropdwon-icon {
-  margin-top: 0% !important;
-}   
-.Search-Form {
-  margin-left: -2%;
-}
-.bgcr {
-  height: 100vh;
-  background-color: #ffffff;
-  
-}
-/* Search-Result Input Bar */
-
-.input-search {
-  display: flex;
-  align-items: center;
-  height: 30px;
-  border: 1px solid lightgray;
-  width: 13vw;
-  padding: 10px 0px;
-  margin: 0 auto;
-  margin-top: 3%;
-  max-width: 560px;
-  float: left;
-  border: none;
-  
-  margin-left: 30px;
-}
-.input-search > input {
-flex: 1;
-padding: 0 5px;
-border: none !important;
-color: #000000;
-font-size: 18px;
-
-}
-.input-search > input:focus {
-  outline-width: 0;
-}
-/* DatePicker */ 
-.DatePicker-Search{
-  margin-top: 19px !important;
-    position: absolute;
-    clear: both;
-    width: 30%;
-    margin-left: 24% !important;
-}
-.topic-2 {
-  text-align: center;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 40px;
-    margin-left: -45%;
-  
-}
-/* Search-Button */
-.btn-1{
-  border: none !important;
-  outline: none !important;
-  height: 40px !important;
-  background: #f25e42 !important;
-  font-size: 20px !important;
-  border-radius: 6px;
-  text-align: center;
-  color: #ffffff;
-  width: 7vw;
-  margin-left: 17%;
-  margin-top: 1.8rem;
-  border: none;
-  cursor: pointer;
-}
-
-  /* Mobile Responsive */
-  @media screen and (max-width:960px)
-{
-  .input-search {
-    display: inline-table;
-    align-items: center;
-    height: 30px;
-    border: 1px solid lightgray;
-    width: 52vw;
-    padding: 10px 0px;
-    margin: 0 auto;
-    margin-top: 3%;
-    max-width: 560px;
-    float: left;
-    border: none;
-    margin-left: -4%;
-  }
-  .DatePicker-Search {
-    width: 84%;
-    display: contents;
-    margin-left: -6% !important;
-    margin-top: 13% !important;
-  }
-  .topic-2 {
-    font-size: 4vh;
-    margin-top: 21%;
-    margin-left: -35%;
-  }
-  .Search-Form {
-      margin-top: 10%;
-      
-  }
-  .btn-1 {
-    width: 30vw;
-    margin-left: 0%;
-    margin-top: 18%;
-  }
-
-  .dropdwon-icon {
-    display: none !important;
-  }
-  .next-btn-home {
-    
-    margin-top: 80%;
-    margin-left: 3%;
-
-  }
- 
-}
-
-/* Arrow Icons */
-.arrow-right-home {
- 
-  fill: currentColor !important;
-    width: 1em !important;
-    height: 2em !important;
-    display: inline-block !important;
-    flex-shrink: 0 !important;
-    -webkit-user-select: none !important;
-    user-select: none !important;
-    margin-top: 14%;
-    color: #ffffff;
-    margin-left: 32%;
-
-}
-
-.next-btn-home {
-  width: 67px;
-    height: 67px;
-    display: inline-flex;
-    background: #000000;
-    border-radius: 32px;
-    font-size: 32px;
-    margin-left: -20vh;
-    margin-top: 18vh;
-}
 
 .train-schedule:hover {
   box-shadow: 0 2px 15px rgba(211, 114, 17, 0.5); 
@@ -165,9 +13,29 @@ font-size: 18px;
 
 .search, .search-header{
   background-color: transparent !important;
+  border: none;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.search-header{ 
+  border: none;
+}
 .search {
   box-shadow: 0 2px 15px 0 rgba(110, 130, 208, 0.18);
+  border: none;
+}
+
+.topic {
+  text-align: center;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 40px;
+}
+
+.loading-screen {
+  text-align: center;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 60px;
+  height: 100%;
+  align-content: center;
+  justify-content: center;
 }
