@@ -56,7 +56,7 @@ function Home() {
 
   async function fetchStations() {
     setLoading(true);
-    await Stations.onSnapshot((querySnapshot) => {
+    await Stations.orderBy("name").onSnapshot((querySnapshot) => {
       const items = [];
       querySnapshot.forEach((doc) => {
         items.push(doc.data());
@@ -233,7 +233,7 @@ function Home() {
                   {schedule.StartStation} to {schedule.EndStation}
                 </Card.Subtitle>
                 <Card.Text>
-                  Strat Time: {schedule.ArrivalStation} hrs
+                  Start Time: {schedule.ArrivalStation} hrs
                   <br />
                   End Time: {schedule.ArrivalDestination} hrs
                   <br />
