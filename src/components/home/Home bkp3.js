@@ -183,6 +183,30 @@ function Home() {
                             </Form.Group>
                           </Col>
                         </Row>
+                        <Row className="mt-4">
+                          <Col lg={6}>
+                            <Form.Group id="name">
+                              <Form.Label>Name:</Form.Label>
+                              <Form.Control
+                                type="input"
+                                placeholder="Type the Name of the Train"
+                              />
+                            </Form.Group>
+                          </Col>
+                          <Col lg={6}>
+                            <Form.Group id="classes">
+                              <Form.Label>Class:</Form.Label>
+                              <select
+                                class="form-control"
+                                id="exampleFormControlSelect1"
+                              >
+                                <option>Third Class</option>
+                                <option>Second Class</option>
+                                <option>First Class</option>
+                              </select>
+                            </Form.Group>
+                          </Col>
+                        </Row>
                       </Col>
                     </Row>
                   </Form>
@@ -202,7 +226,7 @@ function Home() {
             <Card
               key={schedule.id}
               className="mt-2 hover-shadow-sm bg-white rounded col-md train-schedule"
-              
+              border="warning"
             >
               <Card.Body>
                 <Card.Title>{schedule.TrainName}</Card.Title>
