@@ -54,8 +54,6 @@ function Profile() {
             We are making improvements and introducing new features into user
             experience.
           </h4>
-        
-          <h4>It is now much easier to...</h4>
       </div>
       <div className="Icons">
         <div className = "icon-wrap">
