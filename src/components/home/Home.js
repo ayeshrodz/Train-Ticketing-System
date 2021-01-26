@@ -57,29 +57,23 @@ function Home() {
 
   async function fetchStations() {
     setLoading(true);
-    await Stations.orderBy("name").onSnapshot((querySnapshot) => {
-      const items = [];
-      querySnapshot.forEach((doc) => {
-        items.push(doc.data());
+    await Stations.orderBy("name")
+      .limit(5)
+      .onSnapshot((querySnapshot) => {
+        const items = [];
+        querySnapshot.forEach((doc) => {
+          items.push(doc.data());
+        });
+        setStations(items);
+        setLoading(false);
+        console.log(items);
       });
-      setStations(items);
-      setLoading(false);
-      console.log(items);
-    });
-  }
-
-  async function getAllDate() {
-    setLoading(true);
-    const snapshot = await citiesRef.get();
-    snapshot.forEach((doc) => {
-      setLoading(false);
-    });
   }
 
   async function handleSearch(e) {
     await ref
       .where("StartStation", "==", searchNameRef.current.value)
-      .limit(30)
+      .limit(12)
       .onSnapshot((querySnapshot) => {
         const items = [];
         querySnapshot.forEach((doc) => {
@@ -94,7 +88,6 @@ function Home() {
   useEffect(() => {
     getSchedules();
     fetchStations();
-    getAllDate();
   }, []);
 
   if (loading) {

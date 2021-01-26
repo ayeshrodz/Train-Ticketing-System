@@ -13,18 +13,19 @@ import SearchResult from "./SearchResult/SearchResult";
 import { AuthProvider } from "../contexts/AuthContext";
 import PrivateRoute from "./auth/PrivateRoute";
 import Destination from "./Destinations/Destination";
+import { withRouter } from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <Header />
       <div className="App container-fluid">
         <Router>
+          <Header />
           <AuthProvider>
             <div className="app_body">
               <Switch>
                 <Route exact path="/" component={Landing} />
-                <Route exact path="/home" component={Home} />
+                <Route exact path="/home" component={(Header, Home)} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/review" component={Review} />
                 <Route exact path="/searchresult" component={SearchResult} />
@@ -37,7 +38,7 @@ function App() {
           </AuthProvider>
         </Router>
       </div>
-      <footer class="ttp-footer">
+      <footer class="ttp-footer ">
         <p>
           Train Ticketing Platform - ECU Final Project.
           <br />
