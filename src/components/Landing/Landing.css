@@ -3,10 +3,6 @@
     height: 100vh;
     background-color: #ffffff;
   }
-  
-  
-
-    
     .arrow {
         text-align: center;
         clear: both;
@@ -121,4 +117,9 @@
   to {
     margin-top: 0px;
   }
+}
+
+.button {
+  background-color: #f25e42 !important;
+  border: none !important;
 }
