@@ -1,11 +1,8 @@
-  .bgcr{
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200&display=swap');
+ .bgcr{
     height: 100vh;
     background-color: #ffffff;
   }
-  
-  
-
-    
     .arrow {
         text-align: center;
         clear: both;
@@ -16,8 +13,7 @@
         width: 67px;
         height: 67px;
         display: inline-block;
-        background: #f25e42;
-        border-radius: 32px;
+        
         font-size: 32px;
         line-height: 63px;
         color: #ffffff;
@@ -50,11 +46,12 @@
     
 
 .go-to {
-  background:   #f0ad4e;
+  background:   #f25e42;
 }
 
 .go-to-link{
   font-size: 18px;
+  color:white;
 }
 
 .go-to-link:link{
@@ -102,4 +99,27 @@
   to {
     margin-top: 0vw;
   }
+}
+
+.slogan {
+  position: relative;
+  animation-name:slogan;
+  animation-duration: 1.5s;
+  color: #000000;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 80px;
+  
+}
+@keyframes slogan {
+  from {
+    margin-top: -950px;
+  }
+  to {
+    margin-top: 0px;
+  }
+}
+
+.button {
+  background-color: #f25e42 !important;
+  border: none !important;
 }
