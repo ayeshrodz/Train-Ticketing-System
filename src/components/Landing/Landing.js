@@ -21,7 +21,7 @@ function Landing() {
       </Row>
       <Row className="justify-content-center text-center ">
         <Col className="p-4">
-          <Button variant="outline-warning">
+          <Button style = {{background: "#f25e42", border: "none"}}>
             <Link className="go-to-link" to="/home">
               Get Start <ArrowForwardIcon />
             </Link>

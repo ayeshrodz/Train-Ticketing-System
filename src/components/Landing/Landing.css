@@ -50,11 +50,12 @@
     
 
 .go-to {
-  background:   #f0ad4e;
+  background:   #f25e42;
 }
 
 .go-to-link{
   font-size: 18px;
+  color:white;
 }
 
 .go-to-link:link{
