@@ -8,21 +8,30 @@ import logo from "../Images/bg-1.jpeg"
 
 function Landing() {
   return (
-   <div className = "bgcr">
-     <div className = "landing">
-       <div align = "center" className = "chin-chin">
-          <img src = {logo} className = "logo"/>
-          <h1 className = "slogan">Chin - Chin</h1>
+    <Container>
+      <Row className="justify-content-md-center">
+       <div>
+       <Image className="logo" src={logo} fluid />
        </div>
-       <div className="justify-content-center text-center ">
-       <Button variant="outline-warning">
+      </Row>
+      <Row className="justify-content-md-center text-center ">
+       
+         <div>
+         <h1 className="heading-1">Chin-Chin</h1>
+          <h2 className="heading-2">Online Train Ticket Booking Platform</h2>
+         </div>
+        
+      </Row>
+      <Row className="justify-content-center text-center ">
+        <Col className="p-4">
+          <Button className = "button">
             <Link className="go-to-link" to="/home">
               Get Start <ArrowForwardIcon />
             </Link>
           </Button>
-       </div>
-     </div>
-   </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
