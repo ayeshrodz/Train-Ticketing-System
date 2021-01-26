@@ -58,6 +58,38 @@
     margin-left: 3%;
 }
 
+.search-body {
+    flex: 1;
+    display: flex;
+    margin-top: 1%;
+    flex-direction: column;
+  }
+  .search_input {
+    display: flex;
+      align-items: center;
+      height: 50px;
+      border: 1px solid lightgray;
+      border-radius: 999px;
+      width: 75vw;
+      padding: 10px 20px;
+      margin: 0 auto;
+      margin-top: 40px;
+      max-width: 560px;
+      float: left;
+      
+  }
+  
+  
+  .search_input > input {
+    flex: 1;
+    padding: 0 5px;
+    border: none !important;
+    background: transparent;
+    font-size: 15px;
+  }
+  .search_input > input:focus {
+    outline-width: 0;
+  }
 
 @media screen and (max-width:960px)
 {
