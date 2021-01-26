@@ -49,41 +49,40 @@ function Profile() {
         <h1>Welcome to your Account</h1>
       </div>
       <div className="intro">
-        <p>
-          <h4 style={{ color: "grey" }}>
+
+          <h4>
             We are making improvements and introducing new features into user
             experience.
           </h4>
-        </p>
-        <p>
-          <h4 style={{ color: "grey" }}>It is now much easier to...</h4>
-        </p>
+        
+          <h4>It is now much easier to...</h4>
       </div>
       <div className="Icons">
-        <div>
-          <img src={personal} className="personal" alt="personal" width="150" />
-        </div>
+        <div className = "icon-wrap">
+          <img src={personal} className="center personal" alt="personal" width="150"  />
+        
 
-        <div>
+       
           <img
             src={loginsecurity}
             className="loginsecurity"
             alt="loginsecurity"
             width="150"
           />
-        </div>
-
-        <div>
+        
+        
           <img src={reviews} className="reviews" alt="reviews" width="150" />
         </div>
       </div>
 
       {/* Personal Detail */}
+
+      <div className = "button-wrap">
       <div className="personaltxt">
         <Button
           id="PersonalDetails"
           size="lg"
-          variant="outline-danger"
+          variant="danger"
           onClick={PDhandleShow}
         >
           Personal Details
@@ -131,7 +130,7 @@ function Profile() {
       <Button
           id="LoginandSecurity"
           size="lg"
-          variant="outline-danger"
+          variant="danger"
           onClick={SDhandleShow}
         >
           Login and Security
@@ -183,7 +182,7 @@ function Profile() {
       <Button
           id="WriteReviews"
           size="lg"
-          variant="outline-danger"
+          variant="danger"
           onClick={WRhandleShow}
         >
           Write Reviews
@@ -217,6 +216,8 @@ function Profile() {
           </Modal.Footer>
         </Modal>
       </div>
+      </div>
+      <div className = "top-icons">
       <div className="user">
         <div>
           <PersonIcon className="user" />
@@ -228,6 +229,7 @@ function Profile() {
         <Button variant="link" onClick={handleSignout}>
           Sign Out
         </Button>
+      </div>
       </div>
     </div>
   );
