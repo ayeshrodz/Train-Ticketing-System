@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200&display=swap');
  .bgcr{
-    height: 100vh;
+    height: 85vh;
     background-color: #ffffff;
+    
+  }
+  .landing {
+   
+    padding-top: 20vh;
   }
     .arrow {
         text-align: center;
@@ -86,7 +91,7 @@
 
 .logo {
   height: auto;
-  width: 80vh;
+  width: 60vh;
   animation-name: logo;
   animation-duration: 1.5s;
 }
@@ -102,6 +107,7 @@
 }
 
 .slogan {
+  margin-top: 50px;
   position: relative;
   animation-name:slogan;
   animation-duration: 1.5s;
