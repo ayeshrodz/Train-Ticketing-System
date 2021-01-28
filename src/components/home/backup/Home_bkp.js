@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "react-bootstrap";
-import firestore from "../../firebase";
+import firestore from "../../../firebase";
 
 function Home() {
   const [schedules, setSchedules] = useState([]);
