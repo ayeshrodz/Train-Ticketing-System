@@ -202,7 +202,6 @@ function Home() {
             <Card
               key={schedule.id}
               className="mt-2 hover-shadow-sm bg-white rounded col-md train-schedule"
-              
             >
               <Card.Body>
                 <Card.Title>{schedule.TrainName}</Card.Title>
