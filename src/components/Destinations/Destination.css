@@ -7,9 +7,12 @@
   box-sizing: border-box;
   cursor: pointer;
   margin: auto;
-  background-color: coral !important;
+  box-shadow: 0 8px 6px -6px black;
  margin-bottom: 10px;
+ margin: 37px 45px;
+ 
 }
+
 .desination-row {
   padding: 9%;
 }
@@ -21,3 +24,7 @@
   color: #ffffff;
   font-weight: bolder;
 }
+
+.Link:hover {
+  text-decoration: none;
+ }
