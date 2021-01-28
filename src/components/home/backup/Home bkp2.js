@@ -6,7 +6,7 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import IconButton from "@material-ui/core/IconButton";
 import From from "./From";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import firestore from "../../firebase";
+import firestore from "../../../firebase";
 
 function Home() {
   const [fromKeyword, setInput] = useState("");
@@ -62,9 +62,9 @@ function Home() {
               id="clear-on-escape"
               clearOnEscape
               value={fromKeyword}
-                onChange={(e) => setInput(e.target.value)}
+              onChange={(e) => setInput(e.target.value)}
               renderInput={(params) => (
-                <TextField {...params} label="From" margin="normal"   />
+                <TextField {...params} label="From" margin="normal" />
               )}
             />
           </div>
@@ -76,9 +76,9 @@ function Home() {
             id="clear-on-escape"
             clearOnEscape
             value={toKeyword}
-              onChange={(e) => setInput(e.target.value)}
+            onChange={(e) => setInput(e.target.value)}
             renderInput={(params) => (
-              <TextField {...params} label="To" margin="normal"  />
+              <TextField {...params} label="To" margin="normal" />
             )}
           />
         </div>

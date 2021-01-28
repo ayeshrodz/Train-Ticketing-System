@@ -11,7 +11,7 @@ export function DbProvider({ children }) {
   const [schedules, setSchedules] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const scheduleRef = firestore.firestore().collection("schedules");
+  const scheduleRef = db.firestore().collection("schedules");
 
   function getSchedules() {
     scheduleRef.onSnapshot((querySnapshot) => {

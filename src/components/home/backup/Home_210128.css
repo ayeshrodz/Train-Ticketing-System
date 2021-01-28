@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200&display=swap');
+
+.train-schedule:hover {
+  box-shadow: 0 2px 15px rgba(211, 114, 17, 0.5); 
+}
+
+.train-schedule {
+  display: inline-block;
+  height: auto;
+  clear: both;
+  transition: box-shadow .4s;
+}
+
+.search, .search-header{
+  background-color: transparent !important;
+  border: none;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.search-header{ 
+  border: none;
+}
+.search {
+  box-shadow: 0 2px 15px 0 rgba(110, 130, 208, 0.18);
+  border: none;
+}
+
+.topic {
+  text-align: center;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 40px;
+}
+
+.loading-screen {
+  text-align: center;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 60px;
+  height: 100%;
+  align-content: center;
+  justify-content: center;
+}
+
+.train-list {
+  font-weight: bold;
+  font-style: oblique;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 20px;
+}

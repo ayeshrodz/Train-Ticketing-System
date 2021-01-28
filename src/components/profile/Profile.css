@@ -16,8 +16,7 @@
     
 }
 .icon-wrap {
-    padding: 0 12%;
-    margin-left: 10%;
+    padding: 0 0 0 18%;
     margin-top: 4%;
     background-color: yellow;
 }
@@ -44,20 +43,22 @@
 }
 
 .button-wrap {
-    margin-top: 5%;
+    padding: 6%;
     background-color: springgreen;
 }
 .personaltxt{
-    margin-top: -3%;
-    position: absolute;
-    left: 29%;
-    background-color: slateblue;
+    
+    padding: 11px 24px;
+    background-color: springgreen;
+    float: left;
+    display: block;
+    width: 50%;
 }
 
 
 .loginandsecuritytxt{
     float: left;
-    margin-top: -3%;
+    
     position: absolute;
     left: 43%;
     background-color: slateblue;
@@ -66,9 +67,9 @@
 
 
 .reviewstxt{
-    margin-top: -3%;
+   
     position: absolute;
-    left: 59%;
+    left: 61%;
     background-color: slateblue !important;
 }
 .top-icons {
@@ -106,6 +107,9 @@
     }
     .personal {
         margin-bottom: 18%;
+    }
+    .button-wrap {
+
     }
 }
 
