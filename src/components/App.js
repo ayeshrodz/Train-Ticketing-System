@@ -38,13 +38,10 @@ function App() {
           </AuthProvider>
         </Router>
       </div>
-      <footer class="ttp-footer ">
-        <p>
-          Train Ticketing Platform - ECU Final Project.
-          <br />
-          Copyright @2021 {""}
-          <a href="#">Back to top</a>
-        </p>
+      <footer class="footer">
+        <div class="container footer-container">
+          <span class="text-muted">Chin-Chin © 2021, ECU Final Project</span>
+        </div>
       </footer>
     </div>
   );
