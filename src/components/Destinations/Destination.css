@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200&display=swap');
 .card-wrapper {
   width: 300px;
   height: 530px;
@@ -11,4 +12,12 @@
 }
 .desination-row {
   padding: 9%;
+}
+
+.destination-topic {
+  text-align: center;
+  
+  margin-top: -20%;
+  color: #ffffff;
+  font-weight: bolder;
 }
