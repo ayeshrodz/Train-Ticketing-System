@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import "./Destination.css";
+import { Link } from "react-router-dom";
 import firestore from "../../firebase";
 
 function Destination() {
@@ -22,15 +23,18 @@ function Destination() {
   }, []);
 
 
-
   return (
     <div className="row desination-row">
       {destination.map((destination) => (
-      <div className="card-wrapper"><img className="card-wrapper" src = {destination.destiimage}/>
-       <div className = "destination-topic"> <h3 >{destination.destiDescription}</h3></div>
-      </div>
+      
+      <a  href = {destination.destiLink}>
+        
+        <img className="card-wrapper" src = {destination.destiimage} />
+       <div className = "destination-topic" >  <h3 >{destination.destiDescription}</h3></div>
+       
+      </a>
   
-      ))};
+      ))}
     </div>
   );
 }
