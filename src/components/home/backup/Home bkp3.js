@@ -9,7 +9,7 @@ import {
   Button,
   CardColumns,
 } from "react-bootstrap";
-import firestore from "../../firebase";
+import firestore from "../../../firebase";
 import DatePicker from "react-datepicker";
 import SearchIcon from "@material-ui/icons/Search";
 import "react-datepicker/dist/react-datepicker.css";
