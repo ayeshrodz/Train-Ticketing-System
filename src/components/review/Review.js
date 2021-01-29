@@ -17,7 +17,7 @@ function Review() {
 
   function getReview() {
     setLoading(true);
-    ref.limit(6).onSnapshot((querySnapshot) => {
+    ref.limit(24).onSnapshot((querySnapshot) => {
       const items = [];
       querySnapshot.forEach((doc) => {
         items.push(doc.data());
