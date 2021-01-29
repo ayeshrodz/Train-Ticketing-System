@@ -6,7 +6,6 @@ import loginsecurity from "../Images/LoginandSecurity.png";
 import reviews from "../Images/Review.png";
 import PersonIcon from "@material-ui/icons/Person";
 import { useAuth } from "../../contexts/AuthContext";
-import { UncontrolledPopover, PopoverHeader, PopoverBody } from "reactstrap";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
@@ -19,19 +18,27 @@ function Profile() {
   const [PDshow, setPDShow] = useState(false);
   const [SDshow, setSDShow] = useState(false);
   const [WRshow, setWRShow] = useState(false);
-  
 
-  const PDhandleClose = () => {setPDShow(false)};
-  const PDhandleShow = () => {setPDShow(true)};
+  const PDhandleClose = () => {
+    setPDShow(false);
+  };
+  const PDhandleShow = () => {
+    setPDShow(true);
+  };
 
-  const SDhandleClose = () => {setSDShow(false)};
-  const SDhandleShow = () => {setSDShow(true)};
+  const SDhandleClose = () => {
+    setSDShow(false);
+  };
+  const SDhandleShow = () => {
+    setSDShow(true);
+  };
 
-  const WRhandleClose = () => {setWRShow(false)};
-  const WRhandleShow = () => {setWRShow(true)};
-
-
-  
+  const WRhandleClose = () => {
+    setWRShow(false);
+  };
+  const WRhandleShow = () => {
+    setWRShow(true);
+  };
 
   async function handleSignout() {
     setError("");
@@ -49,185 +56,182 @@ function Profile() {
         <h1>Welcome to your Account</h1>
       </div>
       <div className="intro">
-
-          <h4>
-            We are making improvements and introducing new features into user
-            experience.
-          </h4>
+        <h4>
+          We are making improvements and introducing new features into user
+          experience.
+        </h4>
       </div>
       <div className="Icons">
-        <div className = "icon-wrap">
-          <img src={personal} className="center personal" alt="personal" width="150"  />
-        
+        <div className="icon-wrap">
+          <img
+            src={personal}
+            className="center personal"
+            alt="personal"
+            width="150"
+          />
 
-       
           <img
             src={loginsecurity}
             className="loginsecurity"
             alt="loginsecurity"
             width="150"
           />
-        
-        
+
           <img src={reviews} className="reviews" alt="reviews" width="150" />
         </div>
       </div>
 
       {/* Personal Detail */}
 
-      <div className = "button-wrap">
-      <div className="personaltxt">
-        <Button
-          id="PersonalDetails"
-          size="lg"
-          variant="danger"
-          onClick={PDhandleShow}
-        >
-          Personal Details
-        </Button>
+      <div className="button-wrap">
+        <div className="personaltxt">
+          <Button
+            id="PersonalDetails"
+            size="lg"
+            variant="danger"
+            onClick={PDhandleShow}
+          >
+            Personal Details
+          </Button>
 
-        <Modal
-          show={PDshow}
-          onHide={PDhandleClose}
-          centered
-          target="PersonalDetails"
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>Personal Details</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <div className="PersonalDetailsModal">
-              <Form>
-                <Form.Group controlId="formBasicName">
-                  <Form.Label>User Name</Form.Label>
-                  <Form.Control type="UserName" />
-                </Form.Group>
+          <Modal
+            show={PDshow}
+            onHide={PDhandleClose}
+            centered
+            target="PersonalDetails"
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Personal Details</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div className="PersonalDetailsModal">
+                <Form>
+                  <Form.Group controlId="formBasicName">
+                    <Form.Label>User Name</Form.Label>
+                    <Form.Control type="UserName" />
+                  </Form.Group>
 
-                <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Email Address</Form.Label>
-                  <Form.Control type="Email" />
-                </Form.Group>
-              </Form>
-            </div>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={PDhandleClose}>
-              Close
-            </Button>
-            <Button variant="outline-danger" onClick={PDhandleClose}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </div>
-      {/* Personal Detial End */}
+                  <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Email Address</Form.Label>
+                    <Form.Control type="Email" />
+                  </Form.Group>
+                </Form>
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={PDhandleClose}>
+                Close
+              </Button>
+              <Button variant="outline-danger" onClick={PDhandleClose}>
+                Save Changes
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </div>
+        {/* Personal Detial End */}
 
+        <div className="loginandsecuritytxt">
+          <Button
+            id="LoginandSecurity"
+            size="lg"
+            variant="danger"
+            onClick={SDhandleShow}
+          >
+            Login and Security
+          </Button>
 
-      
-      <div className="loginandsecuritytxt">
-      <Button
-          id="LoginandSecurity"
-          size="lg"
-          variant="danger"
-          onClick={SDhandleShow}
-        >
-          Login and Security
-        </Button>
+          <Modal
+            show={SDshow}
+            onHide={SDhandleClose}
+            centered
+            target="PersonalDetails1"
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Login and Security</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div className="LoginandSecurityModal">
+                <Form>
+                  <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="Password" />
+                  </Form.Group>
 
-        <Modal
-          show={SDshow}
-          onHide={SDhandleClose}
-          centered
-          target="PersonalDetails1"
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>Login and Security</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <div className="LoginandSecurityModal">
-              <Form>
-                <Form.Group controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="Password" />
-                </Form.Group>
+                  <Form.Group controlId="formNewPassword">
+                    <Form.Label>New Password</Form.Label>
+                    <Form.Control type="Password" />
+                  </Form.Group>
 
-                <Form.Group controlId="formNewPassword">
-                  <Form.Label>New Password</Form.Label>
-                  <Form.Control type="Password" />
-                </Form.Group>
+                  <Form.Group controlId="formRepassword">
+                    <Form.Label>Re-Enter Password</Form.Label>
+                    <Form.Control type="Password" />
+                  </Form.Group>
+                </Form>
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={SDhandleClose}>
+                Close
+              </Button>
+              <Button variant="outline-danger" onClick={SDhandleClose}>
+                Save Changes
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </div>
+        {/* Security Detail Ends */}
 
-                <Form.Group controlId="formRepassword">
-                  <Form.Label>Re-Enter Password</Form.Label>
-                  <Form.Control type="Password" />
-                </Form.Group>
-              </Form>
-            </div>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={SDhandleClose}>
-              Close
-            </Button>
-            <Button variant="outline-danger" onClick={SDhandleClose}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </div>
-      {/* Security Detail Ends */}
+        {/* Write Review */}
+        <div className="reviewstxt">
+          <Button
+            id="WriteReviews"
+            size="lg"
+            variant="danger"
+            onClick={WRhandleShow}
+          >
+            Write Reviews
+          </Button>
 
-      {/* Write Review */}
-      <div className="reviewstxt">
-      <Button
-          id="WriteReviews"
-          size="lg"
-          variant="danger"
-          onClick={WRhandleShow}
-        >
-          Write Reviews
-        </Button>
-
-        <Modal
-          show={WRshow}
-          onHide={WRhandleClose}
-          centered
-          target="WriteReviews"
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>Write Reviews</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <div className="WriteReviewsModal">
-              <Form>
-               
-                  <Form.Control type="text" placeholder = "Write a Review"/>
-            
-              </Form>
-            </div>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={WRhandleClose}>
-              Close
-            </Button>
-            <Button variant="outline-danger" onClick={WRhandleClose}>
-              Submit
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </div>
-      </div>
-      <div className = "top-icons">
-      <div className="user">
-        <div>
-          <PersonIcon className="user" />
+          <Modal
+            show={WRshow}
+            onHide={WRhandleClose}
+            centered
+            target="WriteReviews"
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Write Reviews</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div className="WriteReviewsModal">
+                <Form>
+                  <Form.Control type="text" placeholder="Write a Review" />
+                </Form>
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={WRhandleClose}>
+                Close
+              </Button>
+              <Button variant="outline-danger" onClick={WRhandleClose}>
+                Submit
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </div>
       </div>
-      <div className="usertxt">
-        {error && <Alert variant="danger">{error}</Alert>}
-        {currentUser.email + " "}
-        <Button variant="link" onClick={handleSignout}>
-          Sign Out
-        </Button>
-      </div>
+      <div className="top-icons">
+        <div className="user">
+          <div>
+            <PersonIcon className="user" />
+          </div>
+        </div>
+        <div className="usertxt">
+          {error && <Alert variant="danger">{error}</Alert>}
+          {currentUser.email + " "}
+          <Button variant="link" onClick={handleSignout}>
+            Sign Out
+          </Button>
+        </div>
       </div>
     </div>
   );

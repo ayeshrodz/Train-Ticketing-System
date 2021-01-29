@@ -1,65 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200&display=swap');
- .bgcr{
-    height: 85vh;
-    background-color: #ffffff;
-    
-  }
-  .landing {
-   
-    padding-top: 20vh;
-  }
-    .arrow {
-        text-align: center;
-        clear: both;
-        width: 100%;
-        color: #000000;
-    }
-    .next-btn{
-        width: 67px;
-        height: 67px;
-        display: inline-block;
-        
-        font-size: 32px;
-        line-height: 63px;
-        color: #ffffff;
-    }
-    @keyframes arrow {
-      from {
-        margin-top: -950px;
-      }
-      to {
-        margin-top: 0px;
-      }
-    }
-    .arrow-right{
-        color: #ffffff;
-        
-      }
+.bgcr {
+  background-color: #ffffff;
 
-      .arrow-right {
-        fill: currentColor !important;
-        width: 1em !important;
-        height: 2em !important;
-        display: inline-block !important;
-        /* font-size: 1.5rem; */
-        transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms !important;
-        flex-shrink: 0 !important;
-        -webkit-user-select: none !important;
-        user-select: none !important;
-        margin-top: -10%;
-    }
-    
+}
+
+.landing {
+
+  padding-top: 20vh;
+}
+
+.arrow {
+  text-align: center;
+  clear: both;
+  width: 100%;
+  color: #000000;
+}
+
+.next-btn {
+  width: 67px;
+  height: 67px;
+  display: inline-block;
+
+  font-size: 32px;
+  line-height: 63px;
+  color: #ffffff;
+}
+
+@keyframes arrow {
+  from {
+    margin-top: -950px;
+  }
+
+  to {
+    margin-top: 0px;
+  }
+}
+
+.arrow-right {
+  color: #ffffff;
+
+}
+
+.arrow-right {
+  fill: currentColor !important;
+  width: 1em !important;
+  height: 2em !important;
+  display: inline-block !important;
+  /* font-size: 1.5rem; */
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms !important;
+  flex-shrink: 0 !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  margin-top: -10%;
+}
+
 
 .go-to {
-  background:   #f25e42;
+  background: #f25e42;
 }
 
-.go-to-link{
-  font-size: 18px;
-  color:white;
+.go-to-link {
+  font-size: 20px;
+
 }
 
-.go-to-link:link{
+.go-to-link:link {
   color: black;
   padding: 5px 10px;
   text-align: center;
@@ -69,7 +73,7 @@
 
 .heading-1 {
   position: relative;
-  animation-name:slogan;
+  animation-name: slogan;
   animation-duration: 1.5s;
   color: #000000;
   font-size: 60px;
@@ -80,6 +84,7 @@
   from {
     margin-top: -950px;
   }
+
   to {
     margin-top: 0px;
   }
@@ -101,6 +106,7 @@
   from {
     margin-top: 90vw;
   }
+
   to {
     margin-top: 0vw;
   }
@@ -109,23 +115,29 @@
 .slogan {
   margin-top: 50px;
   position: relative;
-  animation-name:slogan;
+  animation-name: slogan;
   animation-duration: 1.5s;
   color: #000000;
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 80px;
-  
+
 }
+
 @keyframes slogan {
   from {
     margin-top: -950px;
   }
+
   to {
     margin-top: 0px;
   }
 }
 
 .button {
-  background-color: #f25e42 !important;
+  background-color: transparent !important;
   border: none !important;
+}
+
+.go-to-link:hover {
+  color: #f25e42;
 }
