@@ -4,7 +4,7 @@
     margin-top: 3%;
     text-align: center;
     font-family: 'IBM Plex Sans', sans-serif;
-    background-color: aqua;
+
 }
 
 /*Introduction*/
@@ -12,47 +12,38 @@
     margin-top: 2%;
     text-align: center;
     font-family: 'IBM Plex Sans', sans-serif;
-    background-color: antiquewhite;
-    
 }
 .icon-wrap {
     padding: 0 0 0 18%;
     margin-top: 4%;
-    background-color: yellow;
 }
 /*Personal details*/
 .personal{
     position: relative;
     margin-left: 11%;
-    background-color: tomato;
 }
 
 /*Reviews details*/
 .reviews{
     position: relative;
     margin-left: 11%;
-    background-color: teal;
 }
 
 /*Login and security details*/
 .loginsecurity{
     position: relative;
     margin-left: 11%;
-    background-color: tan;
-  
 }
 
 .button-wrap {
     padding: 6%;
-    background-color: springgreen;
 }
 .personaltxt{
     
-    padding: 11px 24px;
-    background-color: springgreen;
     float: left;
     display: block;
     width: 50%;
+    margin: 0% 23%;
 }
 
 
@@ -61,7 +52,6 @@
     
     position: absolute;
     left: 43%;
-    background-color: slateblue;
 }
 
 
@@ -70,7 +60,6 @@
    
     position: absolute;
     left: 61%;
-    background-color: slateblue !important;
 }
 .top-icons {
     display: flex;
@@ -79,7 +68,6 @@
     position: absolute;
     right: 23px;
     margin-top: 70px;
-    background-color: slateblue;
 }
 
 @media screen and (max-width:960px) {
