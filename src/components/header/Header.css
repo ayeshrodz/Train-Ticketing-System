@@ -1,3 +1,7 @@
 .color-nav {
     background-color: white;
 }
+
+.nav-row {
+    justify-content: space-between;
+}

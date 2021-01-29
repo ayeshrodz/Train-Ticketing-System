@@ -6,9 +6,7 @@ import InfoIcon from "@material-ui/icons/Info";
 import RateReviewIcon from "@material-ui/icons/RateReview";
 import HomeIcon from "@material-ui/icons/Home";
 import Tooltip from "@material-ui/core/Tooltip";
-
 import "./Header.css";
-import Logo from "../assets/img/icon.png";
 
 function Header() {
   return (
@@ -22,7 +20,7 @@ function Header() {
         <Navbar.Brand href="/">
           <img
             alt=""
-            src={Logo}
+            src="/img/icon.png"
             width="30"
             height="30"
             className="d-inline-block align-top"
@@ -31,7 +29,7 @@ function Header() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="flex-row ml-auto d-md-flex nav-row">
+          <Nav className="ml-auto">
             <Nav.Link href="/home">
               <Tooltip title="Home" aria-label="home">
                 <HomeIcon />

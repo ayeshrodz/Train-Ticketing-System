@@ -13,7 +13,6 @@ import SearchResult from "./SearchResult/SearchResult";
 import { AuthProvider } from "../contexts/AuthContext";
 import PrivateRoute from "./auth/PrivateRoute";
 import Destination from "./Destinations/Destination";
-import { withRouter } from "react-router-dom";
 
 function App() {
   return (
@@ -31,7 +30,7 @@ function App() {
                 <Route exact path="/searchresult" component={SearchResult} />
                 <Route exact path="/destination" component={Destination} />
                 <Route path="/auth" component={AuthMain} />
-                <PrivateRoute exact path="/profile" component={Profile} />
+                <PrivateRoute exact="/profile" component={Profile} />
                 <Route component={NotFound} />
               </Switch>
             </div>
