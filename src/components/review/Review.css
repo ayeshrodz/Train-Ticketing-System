@@ -1,22 +1,21 @@
-
 .review {
-    background-color: rgba(83, 77, 77, 0.158);
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    flex: 1 1;
     display: inline-block;
-    width: 30%;
     height: auto;
-    color: rgb(0, 0, 0);
     clear: both;
-    margin-top: 5%;
-    margin-left: 6%;
-    transition: box-shadow .3s;
+    transition: box-shadow .5s;
 }
+
 .review:hover {
-    box-shadow: 0 0 11px rgba(0, 0, 0, 0.884); 
-  }
+    box-shadow: 0 2px 18px rgba(211, 114, 17, 0.5);
+}
+
+.review-list {
+    margin-top: 15px;
+}
+
+.profile-pic {
+    margin-right: 10px;
+}
 
 .review_header {
     display: flex;
@@ -24,78 +23,73 @@
 }
 
 .review_body {
-    margin-left: 12px;
-    color: gray;
-    overflow-wrap: anywhere;
+    color: black;
+    font-size: medium;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.review-subtitle {
+    color: grey;
+    font-size: 10px;
 }
 
 .review_info {
     margin-left: 10px;
 }
 
-.review_info > p {
+.review_info>p {
     font-size: 12px;
     color: black;
 }
-.review_info > h2 {
+
+.review_info>h2 {
     font-size: 15px;
 }
 
 .review_icons {
     display: flex;
-    padding: 0 10px;
+    justify-content: space-between;
 }
 
 .chat {
-    margin-left: 3%;
+    margin-right: 5px;
 }
 
 .share {
-    margin-left: 3%;
+    margin-right: 5px;
 }
 
-.send {
-    margin-left: 3%;
+.like {
+    margin-right: 5px;
 }
 
 .search-body {
-    flex: 1;
     display: flex;
-    margin-top: 1%;
     flex-direction: column;
-  }
-  .search_input {
+}
+
+.search_input {
     display: flex;
-      align-items: center;
-      height: 50px;
-      border: 1px solid lightgray;
-      border-radius: 999px;
-      width: 75vw;
-      padding: 10px 20px;
-      margin: 0 auto;
-      margin-top: 40px;
-      max-width: 560px;
-      float: left;
-      
-  }
-  
-  
-  .search_input > input {
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: 999px;
+    width: 75vw;
+    padding: 10px 20px;
+    margin: 0 auto;
+    max-width: 60%;
+    float: left;
+}
+
+
+.search_input>input {
     flex: 1;
     padding: 0 5px;
     border: none !important;
     background: transparent;
     font-size: 15px;
-  }
-  .search_input > input:focus {
-    outline-width: 0;
-  }
+}
 
-@media screen and (max-width:960px)
-{
-    .review {
-        width: 100%;
-        float: left;
-        margin-left: 0vh;
-    }
+.search_input>input:focus {
+    outline-width: 0;
 }

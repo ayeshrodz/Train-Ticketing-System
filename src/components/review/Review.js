@@ -5,8 +5,11 @@ import ChatOutlinedIcon from "@material-ui/icons/ChatOutlined";
 import ShareOutlinedIcon from "@material-ui/icons/ShareOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import { Card, CardColumns } from "react-bootstrap";
+
 import "./Review.css";
 import firestore from "../../firebase";
+
 function Review() {
   const ref = firestore.firestore().collection("Review");
   const [loading, setLoading] = useState(false);
@@ -14,7 +17,7 @@ function Review() {
 
   function getReview() {
     setLoading(true);
-    ref.onSnapshot((querySnapshot) => {
+    ref.limit(6).onSnapshot((querySnapshot) => {
       const items = [];
       querySnapshot.forEach((doc) => {
         items.push(doc.data());
@@ -29,42 +32,63 @@ function Review() {
   }, []);
 
   if (loading) {
-    return  <div className="loading-screen">
-    <h2>Loading Content of Review Page...</h2>
-  </div>;
+    return (
+      <div className="loading-screen">
+        <h2>Loading Content of Review Page...</h2>
+      </div>
+    );
   }
 
   return (
     <div className="body-review">
       <div className="search-body">
-        <div className=" search_input">
+        <div className="search_input">
           <SearchIcon className="search_inputIcon" />
           <input placeholder="Review" />
-
           <ArrowForwardIcon type="submit" className="search_inputIcon" />
         </div>
       </div>
-      {Review.map((Review) => (
-        <div className="review">
-          <div className="review_header">
-            <Avatar />
-            <div className="review_info">
-              <h2>{Review.UserName}</h2>
-              <p>{Review.position}</p>
-            </div>
-          </div>
 
-          <div className="review_body">
-            <p>{Review.review}</p>
-          </div>
-
-          <div className="review_icons">
-            <ThumbUpAltOutlinedIcon title="Like" className="like" /> Like
-            <ChatOutlinedIcon className="chat" /> Comment
-            <ShareOutlinedIcon className="share" /> Share
-          </div>
-        </div>
-      ))}
+      <div className="justify-content-center">
+        <CardColumns className="review-list">
+          {Review.map((review) => (
+            <Card
+              key={review.id}
+              className="mt-2 hover-shadow-sm bg-white rounded col-lg review"
+            >
+              <Card.Body>
+                <div className="review_header">
+                  <Avatar className="profile-pic rounded" />
+                  <div className="review_info">
+                    <Card.Title className="review-title">
+                      {review.UserName}
+                    </Card.Title>
+                    <Card.Subtitle className="review-subtitle">
+                      {review.position}
+                    </Card.Subtitle>
+                  </div>
+                </div>
+                <div className="review_body">
+                  <p>{review.review}</p>
+                </div>
+                <div className="review_icons">
+                  <div>
+                    <ThumbUpAltOutlinedIcon className="like" />
+                    Like
+                  </div>
+                  <div>
+                    <ChatOutlinedIcon className="chat" />
+                    Comment
+                  </div>
+                  <div>
+                    <ShareOutlinedIcon className="share" /> Share
+                  </div>
+                </div>
+              </Card.Body>
+            </Card>
+          ))}
+        </CardColumns>
+      </div>
     </div>
   );
 }
