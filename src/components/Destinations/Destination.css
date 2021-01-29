@@ -14,7 +14,8 @@
 }
 
 .desination-row {
-  padding: 9%;
+ 
+  margin-left: 10%;
 }
 
 .destination-topic {
@@ -27,4 +28,9 @@
 
 .Link:hover {
   text-decoration: none;
+ }
+
+ .text-one {
+   margin-top: -10%;
+   background-color: springgreen;
  }
