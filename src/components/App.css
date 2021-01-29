@@ -1,7 +1,7 @@
-.container, .container-fluid, .row{
-    clear: both;
-    /*float: left; */
-  }
+.app_body {
+  position: relative;
+  padding-bottom: 50px;
+}
 
 .footer {
   position: fixed;
@@ -18,5 +18,5 @@
 .footer-container {
   width: auto;
   max-width: 680px;
-  padding: 0 15px;
+  padding: 0;
 } 
