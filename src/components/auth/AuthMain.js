@@ -6,7 +6,7 @@ import { AuthProvider } from "../../contexts/AuthContext";
 import { Redirect, Route } from "react-router-dom";
 import "./AuthMain.css";
 
-export default function AuthMain() {
+function AuthMain() {
   return (
     <div className="auth_main">
       <AuthProvider>
@@ -21,3 +21,5 @@ export default function AuthMain() {
     </div>
   );
 }
+
+export default AuthMain;

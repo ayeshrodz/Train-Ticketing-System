@@ -9,11 +9,10 @@ import AuthMain from "./auth/AuthMain";
 import Review from "./review/Review";
 import NotFound from "./NotFound";
 import Landing from "./Landing/Landing";
-import SearchResult from "./SearchResult/SearchResult";
 import { AuthProvider } from "../contexts/AuthContext";
 import PrivateRoute from "./auth/PrivateRoute";
 import Destination from "./Destinations/Destination";
-import { withRouter } from "react-router-dom";
+import Cart from "./cart/Cart";
 
 function App() {
   return (
@@ -25,10 +24,10 @@ function App() {
             <div className="app_body">
               <Switch>
                 <Route exact path="/" component={Landing} />
-                <Route exact path="/home" component={(Header, Home)} />
+                <Route exact path="/home" component={Home} />
+                <PrivateRoute exact path="/cart" component={Cart} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/review" component={Review} />
-                <Route exact path="/searchresult" component={SearchResult} />
                 <Route exact path="/destination" component={Destination} />
                 <Route path="/auth" component={AuthMain} />
                 <PrivateRoute exact path="/profile" component={Profile} />
