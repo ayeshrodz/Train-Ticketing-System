@@ -5,3 +5,12 @@
 .nav-row {
     justify-content: space-between;
 }
+
+.badge {
+    margin-top: 0;
+    justify-content: center;
+    text-align: justify;
+    float: right;
+    line-height: 1;
+    vertical-align: middle;
+}
