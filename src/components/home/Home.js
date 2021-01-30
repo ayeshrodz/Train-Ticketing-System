@@ -22,8 +22,13 @@ function Home() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
   const [stations, setStations] = useState([]);
+  const [fromCity, setFromCity] = useState("");
+  const [toCity, setToCity] = useState("");
+  const [cartItems, setCartItems] = useState([]);
 
   const searchNameRef = useRef();
+  const fromStationRef = useRef();
+  const toStationRef = useRef();
 
   const [state, toggle] = useState(true);
   const { x } = useSpring({
@@ -40,49 +45,148 @@ function Home() {
 
   const ref = firestore.firestore().collection("TrainSchdule");
   const Stations = firestore.firestore().collection("stations");
-  const citiesRef = firestore.firestore().collection("schedules");
 
+  // async function getSchedules() {
+  //   setLoading(true);
+  //   await ref.limit(6).onSnapshot((querySnapshot) => {
+  //     const items = [];
+  //     querySnapshot.forEach((doc) => {
+  //       items.push(doc.data());
+  //     });
+  //     console.log(items);
+  //     setSchedules(items);
+  //     setLoading(false);
+  //   });
+  // }
+
+  // change of fetch data from Firestore to get once
   async function getSchedules() {
     setLoading(true);
-    await ref.limit(6).onSnapshot((querySnapshot) => {
-      const items = [];
-      querySnapshot.forEach((doc) => {
-        items.push(doc.data());
+    await ref
+      .limit(24)
+      .get()
+      .then((item) => {
+        const items = item.docs.map((doc) => doc.data());
+        setSchedules(items);
+        //console.log(items);
+        setLoading(false);
       });
-      console.log(items);
-      setSchedules(items);
-      setLoading(false);
-    });
   }
 
+  // async function fetchStations() {
+  //   setLoading(true);
+  //   await Stations.limit(6)
+  //     .orderBy("name")
+  //     .onSnapshot((querySnapshot) => {
+  //       const items = [];
+  //       querySnapshot.forEach((doc) => {
+  //         items.push(doc.data());
+  //       });
+  //       setStations(items);
+  //       setLoading(false);
+  //       console.log(items);
+  //     });
+  // }
+
+  // change of fetch data from Firestore to get once
   async function fetchStations() {
     setLoading(true);
-    await Stations.limit(6)
-      .orderBy("name")
-      .onSnapshot((querySnapshot) => {
-        const items = [];
-        querySnapshot.forEach((doc) => {
-          items.push(doc.data());
-        });
+    await Stations.orderBy("name")
+      .get()
+      .then((item) => {
+        const items = item.docs.map((doc) => doc.data());
         setStations(items);
+        //console.log(items);
         setLoading(false);
-        console.log(items);
       });
   }
 
-  async function handleSearch(e) {
-    await ref
-      .where("StartStation", "==", searchNameRef.current.value)
-      .limit(12)
-      .onSnapshot((querySnapshot) => {
-        const items = [];
-        querySnapshot.forEach((doc) => {
-          items.push(doc.data());
+  // async function handleSearch(e) {
+  //   await ref
+  //     .where("StartStation", "==", searchNameRef.current.value)
+  //     .limit(12)
+  //     .onSnapshot((querySnapshot) => {
+  //       const items = [];
+  //       querySnapshot.forEach((doc) => {
+  //         items.push(doc.data());
+  //       });
+  //       console.log(items);
+  //       setSchedules(items);
+  //       setLoading(false);
+  //     });
+  // }
+
+  async function handleFromSearch(e) {
+    e.preventDefault();
+
+    if (toCity == "") {
+      await ref
+        .where("StartStation", "==", fromStationRef.current.value)
+        .limit(24)
+        .onSnapshot((querySnapshot) => {
+          const items = [];
+          querySnapshot.forEach((doc) => {
+            items.push(doc.data());
+          });
+          console.log(items);
+          setSchedules(items);
+          setFromCity(fromStationRef.current.value);
+          setLoading(false);
         });
-        console.log(items);
-        setSchedules(items);
-        setLoading(false);
-      });
+    } else {
+      await ref
+        .where("StartStation", "==", fromStationRef.current.value)
+        .where("EndStation", "==", toCity)
+        .limit(24)
+        .onSnapshot((querySnapshot) => {
+          const items = [];
+          querySnapshot.forEach((doc) => {
+            items.push(doc.data());
+          });
+          console.log(items);
+          setSchedules(items);
+          setLoading(false);
+        });
+    }
+
+    console.log(fromCity);
+    //console.log(searchItem);
+  }
+
+  async function handleToSearch(e) {
+    e.preventDefault();
+
+    //setFromCity(fromStationRef.current.value);
+    if (fromCity == "") {
+      await ref
+        .where("EndStation", "==", toStationRef.current.value)
+        .limit(6)
+        .onSnapshot((querySnapshot) => {
+          const items = [];
+          querySnapshot.forEach((doc) => {
+            items.push(doc.data());
+          });
+          console.log(items);
+          setSchedules(items);
+          setToCity(toStationRef.current.value);
+          setLoading(false);
+        });
+    } else {
+      await ref
+        .where("StartStation", "==", fromCity)
+        .where("EndStation", "==", toStationRef.current.value)
+        .limit(6)
+        .onSnapshot((querySnapshot) => {
+          const items = [];
+          querySnapshot.forEach((doc) => {
+            items.push(doc.data());
+          });
+          console.log(items);
+          setSchedules(items);
+          setLoading(false);
+        });
+    }
+    //console.log(searchItem);
   }
 
   function handleClick(train) {
@@ -128,7 +232,7 @@ function Home() {
               </Accordion.Toggle>
               <Accordion.Collapse eventKey="0">
                 <Card.Body>
-                  <Form onSubmit={handleSearch}>
+                  <Form>
                     <Row>
                       <Col lg={3} className="pl-4">
                         <Form.Group id="date">
@@ -158,6 +262,8 @@ function Home() {
                               <select
                                 class="form-control"
                                 id="fromStationSelect"
+                                ref={fromStationRef}
+                                onChange={handleFromSearch}
                               >
                                 {stations.map((station) => (
                                   <option
@@ -175,7 +281,9 @@ function Home() {
                               <Form.Label>To:</Form.Label>
                               <select
                                 class="form-control"
-                                id="fromStationSelect"
+                                id="toStationSelect"
+                                ref={toStationRef}
+                                onChange={handleToSearch}
                               >
                                 {stations.map((station) => (
                                   <option

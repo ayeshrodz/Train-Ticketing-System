@@ -1,10 +1,10 @@
 import React from "react";
 import "./Cart.css";
 
-function Cart() {
+function Cart(props) {
   return (
     <div>
-      <h1>test</h1>
+      <h1>Cart Items</h1>
     </div>
   );
 }
