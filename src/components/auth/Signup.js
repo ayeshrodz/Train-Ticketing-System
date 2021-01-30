@@ -3,8 +3,11 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import "./Signup.css";
+import { db } from "../../firebase";
+import firebase from "firebase/app";
 
 export default function Signup() {
+  const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
@@ -23,9 +26,13 @@ export default function Signup() {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
-      if (!currentUser) {
-        console.log(currentUser.uid);
-      }
+
+      await db.collection("users").add({
+        name: nameRef.current.value,
+        email: emailRef.current.value,
+        registerDate: firebase.firestore.FieldValue.serverTimestamp(),
+        lastLoggedIn: firebase.firestore.FieldValue.serverTimestamp(),
+      });
       history.push("/profile");
     } catch {
       setError("Failed to create an account");
@@ -40,6 +47,10 @@ export default function Signup() {
           <h2 className="text-center mb-4">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
+            <Form.Group id="name">
+              <Form.Label>Name</Form.Label>
+              <Form.Control type="text" ref={nameRef} required />
+            </Form.Group>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" ref={emailRef} required />
