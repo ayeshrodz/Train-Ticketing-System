@@ -27,7 +27,20 @@ export default function Signup() {
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
 
+      const user = firebase.auth().currentUser;
+      user
+        .updateProfile({
+          displayName: nameRef.current.value,
+        })
+        .then(function () {
+          // Update successful.
+        })
+        .catch(function (error) {
+          // An error happened.
+        });
+
       await db.collection("users").add({
+        uid: currentUser.uid,
         name: nameRef.current.value,
         email: emailRef.current.value,
         registerDate: firebase.firestore.FieldValue.serverTimestamp(),
