@@ -9,7 +9,7 @@ import {
   Button,
   CardColumns,
 } from "react-bootstrap";
-import firestore from "../../firebase";
+import { db } from "../../firebase";
 import DatePicker from "react-datepicker";
 import SearchIcon from "@material-ui/icons/Search";
 import "react-datepicker/dist/react-datepicker.css";
@@ -43,8 +43,8 @@ function Home() {
     setEndDate(end);
   };
 
-  const ref = firestore.firestore().collection("TrainSchdule");
-  const Stations = firestore.firestore().collection("stations");
+  const ref = db.collection("TrainSchdule");
+  const Stations = db.collection("stations");
 
   // async function getSchedules() {
   //   setLoading(true);
@@ -63,7 +63,7 @@ function Home() {
   async function getSchedules() {
     setLoading(true);
     await ref
-      .limit(24)
+      .limit(6)
       .get()
       .then((item) => {
         const items = item.docs.map((doc) => doc.data());
@@ -91,7 +91,8 @@ function Home() {
   // change of fetch data from Firestore to get once
   async function fetchStations() {
     setLoading(true);
-    await Stations.orderBy("name")
+    await Stations.limit(4)
+      .orderBy("name")
       .get()
       .then((item) => {
         const items = item.docs.map((doc) => doc.data());
@@ -122,7 +123,7 @@ function Home() {
     if (toCity == "") {
       await ref
         .where("StartStation", "==", fromStationRef.current.value)
-        .limit(24)
+        .limit(6)
         .onSnapshot((querySnapshot) => {
           const items = [];
           querySnapshot.forEach((doc) => {
@@ -137,7 +138,7 @@ function Home() {
       await ref
         .where("StartStation", "==", fromStationRef.current.value)
         .where("EndStation", "==", toCity)
-        .limit(24)
+        .limit(6)
         .onSnapshot((querySnapshot) => {
           const items = [];
           querySnapshot.forEach((doc) => {
