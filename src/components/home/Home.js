@@ -85,6 +85,10 @@ function Home() {
       });
   }
 
+  function handleClick(train) {
+    console.log(train.id);
+  }
+
   useEffect(() => {
     getSchedules();
     fetchStations();
@@ -217,7 +221,12 @@ function Home() {
                   <br />
                   Available Classes: {schedule.Classes}
                 </Card.Text>
-                <Button variant="outline-warning">Reserve Now</Button>
+                <Button
+                  variant="outline-warning"
+                  onClick={() => handleClick(schedule)}
+                >
+                  Reserve Now
+                </Button>
               </Card.Body>
             </Card>
           ))}
