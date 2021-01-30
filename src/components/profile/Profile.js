@@ -113,7 +113,7 @@ function Profile() {
           style={{ textAlign: "right", marginBottom: "3%" }}
         >
           {error && <Alert variant="danger">{error}</Alert>}
-          {currentUser.email + " "}
+          {currentUser.displayName + " "}
           <Button className="signout" variant="link" onClick={handleSignout}>
             Sign Out
           </Button>

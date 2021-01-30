@@ -36,11 +36,10 @@ export default function Signup() {
           // Update successful.
         })
         .catch(function (error) {
-          // An error happened.
+          setError(error);
         });
 
-      await db.collection("users").add({
-        uid: currentUser.uid,
+      await db.collection("users").doc(user.uid).set({
         name: nameRef.current.value,
         email: emailRef.current.value,
         registerDate: firebase.firestore.FieldValue.serverTimestamp(),
