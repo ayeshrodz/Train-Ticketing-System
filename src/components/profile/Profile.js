@@ -13,6 +13,7 @@ import UserProfile from "../Images/userprofile.jpg";
 import { Image } from "react-bootstrap";
 import { db } from "../../firebase";
 import "./Profile.css";
+import firebase from "firebase/app";
 
 function Profile() {
   const [error, setError] = useState("");
@@ -26,25 +27,17 @@ function Profile() {
   const [reviews, setReviews] = useState([]);
   const [review, setReview] = useState("");
 
-  useEffect(() => {
-    db.collection("Review").onSnapshot((snapshot) =>
-      setReviews(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    );
-  }, []);
-
   const sendReview = (e) => {
     e.preventDefault();
 
     db.collection("Review").add({
-      UserName: currentUser.email,
+      UserName: currentUser.displayName,
       position: "Traveller",
       review: review,
+      posted: firebase.firestore.FieldValue.serverTimestamp(),
     });
+
+    setWRShow(false);
   };
 
   const PDhandleClose = () => {
@@ -148,14 +141,17 @@ function Profile() {
                   <Form>
                     <Form.Group controlId="formBasicName">
                       <Form.Label>User Name</Form.Label>
-                      <Form.Control type="UserName" />
+                      <Form.Control
+                        type="UserName"
+                        defaultValue={currentUser.displayName}
+                      />
                     </Form.Group>
 
                     <Form.Group controlId="formBasicEmail">
                       <Form.Label>Email Address</Form.Label>
                       <Form.Control
                         type="Email"
-                        defaultValue={currentUser.email + " "}
+                        defaultValue={currentUser.email}
                       />
                     </Form.Group>
                   </Form>
@@ -246,11 +242,13 @@ function Profile() {
               <Modal.Body>
                 <div className="WriteReviewsModal">
                   <Form>
-                    <Form.Control
-                      type="text"
+                    <textarea
+                      class="form-control"
+                      id="reviewArea"
                       value={review}
                       onChange={(e) => setReview(e.target.value)}
                       placeholder="Write a Review"
+                      rows="6"
                     />
                   </Form>
                 </div>

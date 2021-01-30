@@ -11,8 +11,9 @@ export default function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { signup, currentUser } = useAuth();
+  const { signup } = useAuth();
   const [error, setError] = useState("");
+
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
@@ -31,6 +32,7 @@ export default function Signup() {
       user
         .updateProfile({
           displayName: nameRef.current.value,
+          userType: "Traveler",
         })
         .then(function () {
           // Update successful.
@@ -42,8 +44,9 @@ export default function Signup() {
       await db.collection("users").doc(user.uid).set({
         name: nameRef.current.value,
         email: emailRef.current.value,
+        userType: "Traveler",
         registerDate: firebase.firestore.FieldValue.serverTimestamp(),
-        lastLoggedIn: firebase.firestore.FieldValue.serverTimestamp(),
+        lastLogin: firebase.firestore.FieldValue.serverTimestamp(),
       });
       history.push("/profile");
     } catch {

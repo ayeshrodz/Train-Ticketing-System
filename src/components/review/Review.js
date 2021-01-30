@@ -17,14 +17,17 @@ function Review() {
 
   function getReview() {
     setLoading(true);
-    ref.limit(6).onSnapshot((querySnapshot) => {
-      const items = [];
-      querySnapshot.forEach((doc) => {
-        items.push(doc.data());
+    ref
+      .limit(6)
+      .orderBy("posted", "desc")
+      .onSnapshot((querySnapshot) => {
+        const items = [];
+        querySnapshot.forEach((doc) => {
+          items.push(doc.data());
+        });
+        setReview(items);
+        setLoading(false);
       });
-      setReview(items);
-      setLoading(false);
-    });
   }
 
   useEffect(() => {

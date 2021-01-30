@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import { db } from "../../firebase";
+import firebase from "firebase/app";
 
 export default function Signin() {
   const emailRef = useRef();
@@ -18,6 +20,13 @@ export default function Signin() {
       setError("");
       setLoading(true);
       await signin(emailRef.current.value, passwordRef.current.value);
+
+      const user = firebase.auth().currentUser;
+      const userRef = db.collection("users").doc(user.uid);
+
+      await userRef.update({
+        lastLogin: firebase.firestore.FieldValue.serverTimestamp(),
+      });
       history.push("/profile");
     } catch {
       setError("Failed to sign in");
