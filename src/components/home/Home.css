@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200&display=swap');
 
 .train-schedule:hover {
-  box-shadow: 0 2px 15px rgba(211, 114, 17, 0.5); 
+  box-shadow: 0 2px 15px rgba(211, 114, 17, 0.5);
 }
 
 .train-schedule {
@@ -11,15 +11,17 @@
   transition: box-shadow .4s;
 }
 
-.search, .search-header{
+.search,
+.search-header {
   background-color: transparent !important;
   border: none;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.search-header{ 
+.search-header {
   border: none;
 }
+
 .search {
   box-shadow: 0 2px 15px 0 rgba(110, 130, 208, 0.18);
   border: none;
@@ -45,4 +47,9 @@
   font-style: oblique;
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 20px;
+}
+
+.btnReserve {
+  float: right;
+  margin-bottom: 20px;
 }

@@ -40,6 +40,21 @@ function Profile() {
     setWRShow(false);
   };
 
+  const [inquries, setInquries] = useState([]);
+  const [inquiry, setInquiry] = useState("");
+
+  const sendInquiry = (e) => {
+    e.preventDefault();
+
+    db.collection("Inquiry").add({
+      UserName: currentUser.displayName,
+      Inquiry: inquiry,
+      posted: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+
+    setIShow(false);
+  };
+
   const PDhandleClose = () => {
     setPDShow(false);
   };
@@ -79,21 +94,22 @@ function Profile() {
 
   return (
     <div>
-      <h1 style={{ textAlign: "center", marginTop: "5%" }}>
+      <h1 className = "heading_Line"  style={{ textAlign: "center", marginTop: "5%" }}>
         Welcome to your Account
       </h1>
 
-      <h4 style={{ textAlign: "center", marginTop: "2%" }}>
+      <h4 className = "tag-line"  style={{ textAlign: "center", marginTop: "2%" }}>
         We are making improvements and introducing new features into user
         experience.
       </h4>
       <Image
         src={UserProfile}
+        className = "bg-images"
         alt="website logo"
         style={{ height: "auto", width: "60%", marginLeft: "20%" }}
       />
 
-      <div className="user" style={{ marginTop: "-40%" }}>
+      <div className="dis_user" style={{ marginTop: "-40%" }}>
         <div>
           <PersonIcon
             className="user"
@@ -285,9 +301,16 @@ function Profile() {
                 <Modal.Title>Inquries</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <div className="WriteReviewsModal">
+                <div className="WriteInquriesModal">
                   <Form>
-                    <Form.Control type="text" placeholder="Write Your Inqury" />
+                  <textarea
+                  class="form-control"
+                      id="inquiryArea"
+                      value={inquiry}
+                      onChange={(e) => setInquiry(e.target.value)}
+                      placeholder="Write a Inquiry"
+                      rows="6"
+                      />                   
                   </Form>
                 </div>
               </Modal.Body>
@@ -297,7 +320,7 @@ function Profile() {
                 </Button>
                 <Button
                   style={{ background: "#f25e42", border: "none" }}
-                  onClick={IhandleClose}
+                  onClick={sendInquiry}
                 >
                   Submit
                 </Button>

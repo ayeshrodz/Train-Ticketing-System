@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import Person from "@material-ui/icons/Person";
 import ExploreIcon from "@material-ui/icons/Explore";
@@ -8,12 +8,34 @@ import HomeIcon from "@material-ui/icons/Home";
 import Tooltip from "@material-ui/core/Tooltip";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Badge from "react-bootstrap/Badge";
-
+import { db } from "../../firebase";
 import "./Header.css";
 import Logo from "../assets/img/icon.png";
+import { useAuth } from "../../contexts/AuthContext";
+import logo from "../Images/Navabarcs.png"
 
-function Header(props) {
-  const { cartItems } = props;
+function Header() {
+  const [cartItems, setCartItems] = useState([]);
+  const { currentUser } = useAuth();
+  const cartItemRef = db.collection("items");
+
+  async function getOrderCount() {
+    await cartItemRef
+      .where("user", "==", currentUser.uid)
+      .where("paid", "==", false)
+      .onSnapshot((querySnapshot) => {
+        const items = [];
+        querySnapshot.forEach((doc) => {
+          items.push(doc.data());
+        });
+        console.log(items);
+        setCartItems(items);
+      });
+  }
+
+  useEffect(() => {
+    getOrderCount();
+  }, []);
 
   return (
     <div className="header">
@@ -26,10 +48,10 @@ function Header(props) {
         <Navbar.Brand href="/">
           <img
             alt=""
-            src={Logo}
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
+            src={logo}
+            // width="30"
+            // height="30"
+            className="d-inline-block align-top head"
           />{" "}
           Chin-Chin
         </Navbar.Brand>
@@ -46,7 +68,7 @@ function Header(props) {
                 <ShoppingCartIcon />
               </Tooltip>
               <Badge className="badge" pill variant="primary">
-                0
+                {cartItems.length}
               </Badge>
             </Nav.Link>
             <Nav.Link href="/review">
