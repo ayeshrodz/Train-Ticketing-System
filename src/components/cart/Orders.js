@@ -16,7 +16,6 @@ function Payment() {
     await cartItemRef
       .where("user", "==", currentUser.uid)
       .where("paid", "==", false)
-      .limit(5)
       .onSnapshot((querySnapshot) => {
         const items = [];
         querySnapshot.forEach((doc) => {
@@ -46,7 +45,7 @@ function Payment() {
   return (
     <Container className="d-flex align-items-center justify-content-center orders-main">
       <div className="w-100 orders-content">
-        <Card className="shadow mb-2 ml-0 mt-0 bg-white rounded card">
+        <Card className="mb-2 ml-0 mt-0 bg-white rounded card">
           <Card.Body>
             <h2 className="text-center mb-4 ">Order Details</h2>
             {cartItems.map((train) => (
@@ -63,6 +62,15 @@ function Payment() {
                       </p>
                       <p>Number of Tickets: {train.count}</p>
                       <p>Amount: {train.amount}</p>
+                    </div>
+                    <div className="delete-container">
+                      <Button
+                        className="btnDelete rounded-pill"
+                        variant="outline-danger"
+                        onClick={() => handleClick(train)}
+                      >
+                        Remove
+                      </Button>
                     </div>
                   </div>
                 </Card.Body>
