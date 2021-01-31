@@ -12,30 +12,29 @@ import { db } from "../../firebase";
 import "./Header.css";
 import Logo from "../assets/img/icon.png";
 import { useAuth } from "../../contexts/AuthContext";
+import logo from "../Images/Navabarcs.png"
 
 function Header() {
   const [cartItems, setCartItems] = useState([]);
   const { currentUser } = useAuth();
-
   const cartItemRef = db.collection("items");
-  const orderItemRef = db
-    .collection("orders")
-    .where("user", "==", currentUser.uid)
-    .where("paid", "==", false);
 
-  async function getOrders() {
+  async function getOrderCount() {
     await cartItemRef
       .where("user", "==", currentUser.uid)
       .where("paid", "==", false)
-      .get()
-      .then((item) => {
-        const items = item.docs.map((doc) => doc.data());
+      .onSnapshot((querySnapshot) => {
+        const items = [];
+        querySnapshot.forEach((doc) => {
+          items.push(doc.data());
+        });
+        console.log(items);
         setCartItems(items);
       });
   }
 
   useEffect(() => {
-    getOrders();
+    getOrderCount();
   }, []);
 
   return (
@@ -49,10 +48,10 @@ function Header() {
         <Navbar.Brand href="/">
           <img
             alt=""
-            src={Logo}
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
+            src={logo}
+            // width="30"
+            // height="30"
+            className="d-inline-block align-top head"
           />{" "}
           Chin-Chin
         </Navbar.Brand>
