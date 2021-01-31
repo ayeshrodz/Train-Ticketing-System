@@ -64,15 +64,6 @@ function Payment() {
                       <p>Number of Tickets: {train.count}</p>
                       <p>Amount: {train.amount}</p>
                     </div>
-                    <div className="delete-container">
-                      <Button
-                        className="btnDelete rounded-pill"
-                        variant="outline-danger"
-                        onClick={() => handleClick(train)}
-                      >
-                        Remove
-                      </Button>
-                    </div>
                   </div>
                 </Card.Body>
               </Card>
