@@ -12,3 +12,17 @@
     font-weight: bold;
     line-height: 5em;
 }
+
+.payment-success {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
+    font-size: 26px;
+    color: green
+}
+
+.payment-code {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 26px;
+    color: red;
+}

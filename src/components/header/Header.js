@@ -12,7 +12,7 @@ import { db } from "../../firebase";
 import "./Header.css";
 import Logo from "../assets/img/icon.png";
 import { useAuth } from "../../contexts/AuthContext";
-import logo from "../Images/Navabarcs.png"
+import logo from "../Images/Navabarcs.png";
 
 function Header() {
   const [cartItems, setCartItems] = useState([]);
@@ -23,6 +23,7 @@ function Header() {
     await cartItemRef
       .where("user", "==", currentUser.uid)
       .where("paid", "==", false)
+      .limit(5)
       .onSnapshot((querySnapshot) => {
         const items = [];
         querySnapshot.forEach((doc) => {

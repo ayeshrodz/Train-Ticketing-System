@@ -24,6 +24,8 @@
   margin-top: -20%;
   color: #ffffff;
   font-weight: bolder;
+  text-decoration: none !important;
+  
 }
 
 .Link:hover {
@@ -33,4 +35,9 @@
  .text-one {
    margin-top: -10%;
    background-color: springgreen;
+ }
+
+ .decription_desi:hover{
+   border: none;
+   text-decoration: none !important;
  }

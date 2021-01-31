@@ -28,7 +28,7 @@ function Destination() {
           <img className="card-wrapper" src={destination.destiimage} />
           <div className="destination-topic">
             {" "}
-            <h3>{destination.destiDescription}</h3>
+            <h3 className = "decription_desi">{destination.destiDescription}</h3>
           </div>
         </a>
       ))}
