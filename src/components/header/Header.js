@@ -18,6 +18,10 @@ function Header() {
   const { currentUser } = useAuth();
 
   const cartItemRef = db.collection("items");
+  const orderItemRef = db
+    .collection("orders")
+    .where("user", "==", currentUser.uid)
+    .where("paid", "==", false);
 
   async function getOrders() {
     await cartItemRef

@@ -8,7 +8,6 @@ function Payment() {
   const [loading, setLoading] = useState(false);
   const [totalPayment, setTotalPayment] = useState([]);
   const { currentUser } = useAuth();
-  const total = 0;
 
   const orderItemRef = db.collection("orders");
 
