@@ -2,3 +2,21 @@
     color: #f25e42;   
 }
 
+@media only screen and (max-width: 600px) {
+    .bg-images {
+        display: none;
+    }
+    .tag-line {
+        display: none;
+    }
+    .heading_Line {
+        font-size: 20px;
+        padding: 20% 10%;
+    }
+    .user{
+        margin-top: -10%;
+    }
+    .usertxt {
+        float: right;
+    }
+}
