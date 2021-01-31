@@ -94,21 +94,22 @@ function Profile() {
 
   return (
     <div>
-      <h1 style={{ textAlign: "center", marginTop: "5%" }}>
+      <h1 className = "heading_Line"  style={{ textAlign: "center", marginTop: "5%" }}>
         Welcome to your Account
       </h1>
 
-      <h4 style={{ textAlign: "center", marginTop: "2%" }}>
+      <h4 className = "tag-line"  style={{ textAlign: "center", marginTop: "2%" }}>
         We are making improvements and introducing new features into user
         experience.
       </h4>
       <Image
         src={UserProfile}
+        className = "bg-images"
         alt="website logo"
         style={{ height: "auto", width: "60%", marginLeft: "20%" }}
       />
 
-      <div className="user" style={{ marginTop: "-40%" }}>
+      <div className="dis_user" style={{ marginTop: "-40%" }}>
         <div>
           <PersonIcon
             className="user"

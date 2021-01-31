@@ -12,6 +12,7 @@ import { db } from "../../firebase";
 import "./Header.css";
 import Logo from "../assets/img/icon.png";
 import { useAuth } from "../../contexts/AuthContext";
+import logo from "../Images/Navabarcs.png"
 
 function Header() {
   const [cartItems, setCartItems] = useState([]);
@@ -47,10 +48,10 @@ function Header() {
         <Navbar.Brand href="/">
           <img
             alt=""
-            src={Logo}
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
+            src={logo}
+            // width="30"
+            // height="30"
+            className="d-inline-block align-top head"
           />{" "}
           Chin-Chin
         </Navbar.Brand>
