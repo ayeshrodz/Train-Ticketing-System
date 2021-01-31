@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import Person from "@material-ui/icons/Person";
 import ExploreIcon from "@material-ui/icons/Explore";
@@ -8,12 +8,35 @@ import HomeIcon from "@material-ui/icons/Home";
 import Tooltip from "@material-ui/core/Tooltip";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Badge from "react-bootstrap/Badge";
-
+import { db } from "../../firebase";
 import "./Header.css";
 import Logo from "../assets/img/icon.png";
+import { useAuth } from "../../contexts/AuthContext";
 
-function Header(props) {
-  const { cartItems } = props;
+function Header() {
+  const [cartItems, setCartItems] = useState([]);
+  const { currentUser } = useAuth();
+
+  const cartItemRef = db.collection("items");
+  const orderItemRef = db
+    .collection("orders")
+    .where("user", "==", currentUser.uid)
+    .where("paid", "==", false);
+
+  async function getOrders() {
+    await cartItemRef
+      .where("user", "==", currentUser.uid)
+      .where("paid", "==", false)
+      .get()
+      .then((item) => {
+        const items = item.docs.map((doc) => doc.data());
+        setCartItems(items);
+      });
+  }
+
+  useEffect(() => {
+    getOrders();
+  }, []);
 
   return (
     <div className="header">
@@ -46,7 +69,7 @@ function Header(props) {
                 <ShoppingCartIcon />
               </Tooltip>
               <Badge className="badge" pill variant="primary">
-                0
+                {cartItems.length}
               </Badge>
             </Nav.Link>
             <Nav.Link href="/review">
