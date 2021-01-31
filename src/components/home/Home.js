@@ -64,7 +64,7 @@ function Home() {
   async function getSchedules() {
     setLoading(true);
     await ref
-      .limit(6)
+      .limit(12)
       .get()
       .then((item) => {
         const items = item.docs.map((doc) => doc.data());
@@ -92,8 +92,7 @@ function Home() {
   // change of fetch data from Firestore to get once
   async function fetchStations() {
     setLoading(true);
-    await Stations.limit(4)
-      .orderBy("name")
+    await Stations.orderBy("name")
       .get()
       .then((item) => {
         const items = item.docs.map((doc) => doc.data());
@@ -124,7 +123,7 @@ function Home() {
     if (toCity == "") {
       await ref
         .where("StartStation", "==", fromStationRef.current.value)
-        .limit(6)
+        .limit(12)
         .onSnapshot((querySnapshot) => {
           const items = [];
           querySnapshot.forEach((doc) => {
@@ -139,7 +138,7 @@ function Home() {
       await ref
         .where("StartStation", "==", fromStationRef.current.value)
         .where("EndStation", "==", toCity)
-        .limit(6)
+        .limit(12)
         .onSnapshot((querySnapshot) => {
           const items = [];
           querySnapshot.forEach((doc) => {
@@ -162,7 +161,7 @@ function Home() {
     if (fromCity == "") {
       await ref
         .where("EndStation", "==", toStationRef.current.value)
-        .limit(6)
+        .limit(12)
         .onSnapshot((querySnapshot) => {
           const items = [];
           querySnapshot.forEach((doc) => {
@@ -177,7 +176,7 @@ function Home() {
       await ref
         .where("StartStation", "==", fromCity)
         .where("EndStation", "==", toStationRef.current.value)
-        .limit(6)
+        .limit(12)
         .onSnapshot((querySnapshot) => {
           const items = [];
           querySnapshot.forEach((doc) => {
