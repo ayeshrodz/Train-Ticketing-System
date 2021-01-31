@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Card } from "react-bootstrap";
+import { Container, Card, Button } from "react-bootstrap";
 import "./Orders.css";
 import { db } from "../../firebase";
 import { useAuth } from "../../contexts/AuthContext";
@@ -16,12 +16,18 @@ function Payment() {
     await cartItemRef
       .where("user", "==", currentUser.uid)
       .where("paid", "==", false)
-      .get()
-      .then((item) => {
-        const items = item.docs.map((doc) => doc.data());
+      .onSnapshot((querySnapshot) => {
+        const items = [];
+        querySnapshot.forEach((doc) => {
+          items.push(doc.data());
+        });
         setCartItems(items);
+        setLoading(false);
       });
-    setLoading(false);
+  }
+
+  function handleClick(order) {
+    console.log(order.id);
   }
 
   useEffect(() => {
@@ -39,17 +45,34 @@ function Payment() {
   return (
     <Container className="d-flex align-items-center justify-content-center orders-main">
       <div className="w-100 orders-content">
-        <Card className="shadow pl-3 pr-3 mb-5 ml-0 mt-0 bg-white rounded card">
+        <Card className="mb-5 ml-0 mt-0 bg-white rounded card">
           <Card.Body>
             <h2 className="text-center mb-4 ">Order Details</h2>
-            {cartItems.map((item) => (
-              <Card className="cart-item mb-3" key={item.id}>
+            {cartItems.map((train) => (
+              <Card className="cart-item mb-3" key={train.id}>
                 <Card.Body>
-                  <p>
-                    <b>{item.name}</b>
-                  </p>
-                  <p>Number of Tickets: {item.count}</p>
-                  <p>Amount: {item.amount}</p>
+                  <div>
+                    <div className="col-sm-10">
+                      <p>
+                        <b>{train.name}</b>
+                        <br />
+                        <i>
+                          {train.from} to {train.to}
+                        </i>
+                      </p>
+                      <p>Number of Tickets: {train.count}</p>
+                      <p>Amount: {train.amount}</p>
+                    </div>
+                    <div className="delete-container">
+                      <Button
+                        className="btnDelete rounded-pill"
+                        variant="outline-danger"
+                        onClick={() => handleClick(train)}
+                      >
+                        Remove
+                      </Button>
+                    </div>
+                  </div>
                 </Card.Body>
               </Card>
             ))}
