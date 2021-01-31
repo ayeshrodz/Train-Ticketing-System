@@ -8,23 +8,26 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { Card, CardColumns } from "react-bootstrap";
 
 import "./Review.css";
-import firestore from "../../firebase";
+import { db } from "../../firebase";
 
 function Review() {
-  const ref = firestore.firestore().collection("Review");
+  const ref = db.collection("Review");
   const [loading, setLoading] = useState(false);
   const [Review, setReview] = useState([]);
 
   function getReview() {
     setLoading(true);
-    ref.limit(24).onSnapshot((querySnapshot) => {
-      const items = [];
-      querySnapshot.forEach((doc) => {
-        items.push(doc.data());
+    ref
+      .limit(6)
+      .orderBy("posted", "desc")
+      .onSnapshot((querySnapshot) => {
+        const items = [];
+        querySnapshot.forEach((doc) => {
+          items.push(doc.data());
+        });
+        setReview(items);
+        setLoading(false);
       });
-      setReview(items);
-      setLoading(false);
-    });
   }
 
   useEffect(() => {

@@ -12,7 +12,9 @@ import Badge from "react-bootstrap/Badge";
 import "./Header.css";
 import Logo from "../assets/img/icon.png";
 
-function Header() {
+function Header(props) {
+  const { cartItems } = props;
+
   return (
     <div className="header">
       <Navbar

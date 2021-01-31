@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { Button, Alert } from "react-bootstrap";
 import personal from "../Images/PersonalDetails.png";
@@ -10,12 +10,12 @@ import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import UserProfile from "../Images/userprofile.jpg";
-import {Image} from "react-bootstrap";
-
+import { Image } from "react-bootstrap";
+import { db } from "../../firebase";
 import "./Profile.css";
+import firebase from "firebase/app";
 
 function Profile() {
-  
   const [error, setError] = useState("");
   const { currentUser, signout } = useAuth();
   const history = useHistory();
@@ -23,6 +23,22 @@ function Profile() {
   const [SDshow, setSDShow] = useState(false);
   const [WRshow, setWRShow] = useState(false);
   const [Ishow, setIShow] = useState(false);
+
+  const [reviews, setReviews] = useState([]);
+  const [review, setReview] = useState("");
+
+  const sendReview = (e) => {
+    e.preventDefault();
+
+    db.collection("Review").add({
+      UserName: currentUser.displayName,
+      position: "Traveller",
+      review: review,
+      posted: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+
+    setWRShow(false);
+  };
 
   const PDhandleClose = () => {
     setPDShow(false);
@@ -62,39 +78,45 @@ function Profile() {
   }
 
   return (
-   
     <div>
-      
-      <h1 style={{ textAlign: "center" , marginTop:"5%"}}>Welcome to your Account</h1>
-      
- 
-      <h4 style={{ textAlign: "center", marginTop:"2%" }}>
-          We are making improvements and introducing new features into user
-          experience.
-      </h4>
-      <Image 
-            src={UserProfile} alt="website logo"
-            style={{ height: "auto", width: "60%" ,marginLeft:"20%" }}
-            
-          />
+      <h1 style={{ textAlign: "center", marginTop: "5%" }}>
+        Welcome to your Account
+      </h1>
 
-      
-        <div className="user" style={{marginTop:"-40%"}} >
-          <div>
-            <PersonIcon className="user" style={{ marginLeft:"85%", marginBottom:"-3%"}} />
-          </div>
-        
-        
-        <div className="usertxt" style={{ textAlign: "right", marginBottom:"3%" }}>
+      <h4 style={{ textAlign: "center", marginTop: "2%" }}>
+        We are making improvements and introducing new features into user
+        experience.
+      </h4>
+      <Image
+        src={UserProfile}
+        alt="website logo"
+        style={{ height: "auto", width: "60%", marginLeft: "20%" }}
+      />
+
+      <div className="user" style={{ marginTop: "-40%" }}>
+        <div>
+          <PersonIcon
+            className="user"
+            style={{ marginLeft: "85%", marginBottom: "-3%" }}
+          />
+        </div>
+
+        <div
+          className="usertxt"
+          style={{ textAlign: "right", marginBottom: "3%" }}
+        >
           {error && <Alert variant="danger">{error}</Alert>}
-          {currentUser.email + " "}
-          <Button className="signout" variant="link" onClick={handleSignout} >
+          {currentUser.displayName + " "}
+          <Button className="signout" variant="link" onClick={handleSignout}>
             Sign Out
           </Button>
         </div>
       </div>
-      
-      <div className="buttongroup" style={{marginLeft:"10%", marginTop:"15%"}}>
+
+      <div
+        className="buttongroup"
+        style={{ marginLeft: "10%", marginTop: "15%" }}
+      >
         <ButtonGroup vertical>
           <div className="Personaldetails">
             <Button
@@ -119,12 +141,18 @@ function Profile() {
                   <Form>
                     <Form.Group controlId="formBasicName">
                       <Form.Label>User Name</Form.Label>
-                      <Form.Control type="UserName" />
+                      <Form.Control
+                        type="UserName"
+                        defaultValue={currentUser.displayName}
+                      />
                     </Form.Group>
 
                     <Form.Group controlId="formBasicEmail">
                       <Form.Label>Email Address</Form.Label>
-                      <Form.Control type="Email" defaultValue={currentUser.email + " "} />
+                      <Form.Control
+                        type="Email"
+                        defaultValue={currentUser.email}
+                      />
                     </Form.Group>
                   </Form>
                 </div>
@@ -214,7 +242,14 @@ function Profile() {
               <Modal.Body>
                 <div className="WriteReviewsModal">
                   <Form>
-                    <Form.Control type="text" placeholder="Write a Review" />
+                    <textarea
+                      class="form-control"
+                      id="reviewArea"
+                      value={review}
+                      onChange={(e) => setReview(e.target.value)}
+                      placeholder="Write a Review"
+                      rows="6"
+                    />
                   </Form>
                 </div>
               </Modal.Body>
@@ -224,13 +259,12 @@ function Profile() {
                 </Button>
                 <Button
                   style={{ background: "#f25e42", border: "none" }}
-                  onClick={WRhandleClose}
+                  onClick={sendReview}
                 >
                   Submit
                 </Button>
               </Modal.Footer>
             </Modal>
-            
           </div>
           <div className="inquriestxt">
             <Button
@@ -269,7 +303,6 @@ function Profile() {
                 </Button>
               </Modal.Footer>
             </Modal>
-            
           </div>
         </ButtonGroup>
       </div>

@@ -20,6 +20,7 @@
     "babel-preset-react": "^6.24.1",
     "bootstrap": "^4.5.3",
     "firebase": "^8.2.0",
+    "firebase-admin": "^9.4.2",
     "firebase-tools": "^9.1.0",
     "html-webpack-plugin": "^4.5.0",
     "kendo-ui-react": "^0.14.2",

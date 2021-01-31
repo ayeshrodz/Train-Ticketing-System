@@ -3,13 +3,17 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import "./Signup.css";
+import { db } from "../../firebase";
+import firebase from "firebase/app";
 
 export default function Signup() {
+  const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const { signup } = useAuth();
   const [error, setError] = useState("");
+
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
@@ -23,6 +27,27 @@ export default function Signup() {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
+
+      const user = firebase.auth().currentUser;
+      user
+        .updateProfile({
+          displayName: nameRef.current.value,
+          userType: "Traveler",
+        })
+        .then(function () {
+          // Update successful.
+        })
+        .catch(function (error) {
+          setError(error);
+        });
+
+      await db.collection("users").doc(user.uid).set({
+        name: nameRef.current.value,
+        email: emailRef.current.value,
+        userType: "Traveler",
+        registerDate: firebase.firestore.FieldValue.serverTimestamp(),
+        lastLogin: firebase.firestore.FieldValue.serverTimestamp(),
+      });
       history.push("/profile");
     } catch {
       setError("Failed to create an account");
@@ -37,6 +62,10 @@ export default function Signup() {
           <h2 className="text-center mb-4">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
+            <Form.Group id="name">
+              <Form.Label>Name</Form.Label>
+              <Form.Control type="text" ref={nameRef} required />
+            </Form.Group>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" ref={emailRef} required />
