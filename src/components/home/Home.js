@@ -261,7 +261,7 @@ function Home() {
                             <Form.Group id="from">
                               <Form.Label>From:</Form.Label>
                               <select
-                                class="form-control"
+                                class="form-control custom-select custom-select-lg mb-3"
                                 id="fromStationSelect"
                                 ref={fromStationRef}
                                 onChange={handleFromSearch}
@@ -281,7 +281,7 @@ function Home() {
                             <Form.Group id="to">
                               <Form.Label>To:</Form.Label>
                               <select
-                                class="form-control"
+                                class="form-control custom-select custom-select-lg mb-3"
                                 id="toStationSelect"
                                 ref={toStationRef}
                                 onChange={handleToSearch}
@@ -331,10 +331,11 @@ function Home() {
                   Available Classes: {schedule.Classes}
                 </Card.Text>
                 <Button
+                  className="btnReserve rounded-pill"
                   variant="outline-warning"
                   onClick={() => handleClick(schedule)}
                 >
-                  Reserve Now
+                  Reserve
                 </Button>
               </Card.Body>
             </Card>

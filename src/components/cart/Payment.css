@@ -1,0 +1,14 @@
+.payment-card-content {
+    max-width: 450px;
+}
+
+.payment-card-main {
+    margin-top: 20px;
+}
+
+.payment-amount {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 5em;
+}

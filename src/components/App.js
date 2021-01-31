@@ -19,8 +19,8 @@ function App() {
     <div>
       <div className="App container-fluid">
         <Router>
-          <Header />
           <AuthProvider>
+            <Header />
             <div className="app_body">
               <Switch>
                 <Route exact path="/" component={Landing} />
