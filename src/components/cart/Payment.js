@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Container, Form, Button, Card, Row, Col } from "react-bootstrap";
+import {
+  Container,
+  Form,
+  Button,
+  Card,
+  Row,
+  Col,
+  Modal,
+} from "react-bootstrap";
 import "./Payment.css";
 import { db } from "../../firebase";
 import { useAuth } from "../../contexts/AuthContext";
@@ -7,9 +15,17 @@ import { useAuth } from "../../contexts/AuthContext";
 function Payment() {
   const [loading, setLoading] = useState(false);
   const [totalPayment, setTotalPayment] = useState([]);
+  const [SDshow, setSDShow] = useState(false);
   const { currentUser } = useAuth();
 
   const orderItemRef = db.collection("orders");
+
+  const SDhandleClose = () => {
+    setSDShow(false);
+  };
+  const SDhandleShow = () => {
+    setSDShow(true);
+  };
 
   async function getTotalPayment() {
     setLoading(true);
@@ -21,11 +37,13 @@ function Payment() {
         const items = item.docs.map((doc) => doc.data());
         setTotalPayment(items);
       });
+
     setLoading(false);
   }
 
   function handlePayment(e) {
     e.preventDefault();
+    SDhandleShow();
   }
 
   useEffect(() => {
@@ -62,7 +80,7 @@ function Payment() {
                     <Form.Label>Card Number</Form.Label>
                     <Form.Control
                       type="text"
-                      pattern="^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$"
+                      //pattern="^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$"
                       required
                       placeholder="Card Number"
                     />
@@ -75,7 +93,7 @@ function Payment() {
                     <Form.Label>Expiry Date</Form.Label>
                     <Form.Control
                       type="text"
-                      pattern="^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$"
+                      //pattern="^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$"
                       required
                       placeholder="MM/YY"
                     />
@@ -86,7 +104,7 @@ function Payment() {
                     <Form.Label>CVV</Form.Label>
                     <Form.Control
                       type="text"
-                      pattern="[\d]{3}"
+                      //pattern="[\d]{3}"
                       required
                       placeholder="CVC"
                     />
@@ -116,6 +134,44 @@ function Payment() {
               >
                 Pay Now
               </Button>
+              <Modal
+                show={SDshow}
+                onHide={SDhandleClose}
+                centered
+                target="PersonalDetails1"
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title>Payment Confimation</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <div className="LoginandSecurityModal">
+                    <div>
+                      <h2 className="payment-success">
+                        Payment Successful...!
+                      </h2>
+                      <p>Please use this number as your confirmation code:</p>
+                      <h3 className="payment-code">
+                        {Math.floor(Math.random() * 100000) + 1}
+                      </h3>
+                    </div>
+                  </div>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button
+                    variant="secondary"
+                    type="cancel"
+                    onClick={SDhandleClose}
+                  >
+                    Close
+                  </Button>
+                  <Button
+                    style={{ background: "#f25e42", border: "none" }}
+                    onClick={SDhandleClose}
+                  >
+                    Okey
+                  </Button>
+                </Modal.Footer>
+              </Modal>
             </Form>
           </Card.Body>
         </Card>
