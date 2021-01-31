@@ -332,7 +332,7 @@ function Home() {
                 </Card.Text>
                 <Button
                   className="btnReserve rounded-pill"
-                  variant="outline-warning"
+                  
                   onClick={() => handleClick(schedule)}
                 >
                   Reserve
